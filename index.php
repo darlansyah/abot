@@ -1,4 +1,28 @@
-<?php include('header.php'); ?>
+<?php
+include('header.php');
+//include ('admin/koneksi.php');
+
+$id_user = $_SESSION['id_user'];
+
+$query_lomba = "SELECT * FROM lomba_detail where id_peserta = $id_user ";
+
+$data_lomba = mysqli_query($link,$query_lomba);
+
+$fetch_lomba = mysqli_fetch_array($data_lomba);
+
+// if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran']){
+//   echo 'UPLOAD';
+// }
+// else {
+//   echo "HARGA";
+// }
+
+//var_dump($fetch_lomba);
+// die;
+
+
+?>
+
 
 <!--home-->
 
@@ -63,17 +87,32 @@
                     </div>
                     <div class="course_footer">
                         <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                            <div class="course_info">
-                                <i class="fa fa-dollar" aria-hidden="true"></i>
-                                <span>Biaya Pendaftaran  :</span>
-                            </div>
-                            <div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
+
+                          <?php
+                          if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran'] && ($data['id_lomba'] == $fetch_lomba['id_lomba'])){
+                            ?>
+                              <div class="course_price ml-auto">Upload </div>
+                              <?php
+                          }
+                          else {
+                          ?>
+
+                                                      <div class="course_info">
+                                                          <i class="fa fa-dollar" aria-hidden="true"></i>
+                                                          <span>Biaya Pendaftaran  :</span>
+                                                      </div>
+                                                      <div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
+                          <?php
+                          }
+                           ?>
+
+
                         </div>
                     </div>
                 </div>
             </div>
             <?php } ?>
-           
+
 
         </div>
         <div class="row">

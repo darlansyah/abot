@@ -1,4 +1,9 @@
-<?php include('admin/koneksi.php'); ?>
+<?php
+include('admin/koneksi.php');
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,14 +46,43 @@
                                                 <div>kfijogja@gmail.com</div>
                                             </li>
                                         </ul>
-                                        <div class="top_bar_login ml-auto">
-                                            <div class="login_button"><a href="#">Register or Login</a></div>
-                                        </div>
+
+                                        <?php
+                                          if(empty($_SESSION['id_user'])){
+                                        		?>
+                                            <ul class="top_bar_contact_list ml-auto">
+                                                <li>
+                                                    <div><a href="daftar.php"> Register </a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="login.php"> Login</a></div>
+                                                </li>
+                                            </ul>
+                                            <?php
+                                        	}
+                                          else{
+                                            ?>
+                                            <ul class="top_bar_contact_list ml-auto">
+                                                <li>
+                                                    <div><?php echo   $_SESSION['nama'] ?></div>
+                                                </li>
+                                              </ul>
+                                            <?php
+                                          }
+
+                                         ?>
+
+                                        <!-- <div class="top_bar_login ml-auto">
+                                            <div class="login_button">
+                                              <a href="daftar.php"> Register </a>
+                                              or
+                                              <a href="login.php"> Login</a></div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>				
+                    </div>
                 </div>
 
                 <!-- Header Content -->
@@ -66,7 +100,15 @@
                                         <ul class="main_nav">
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="lomba.php">Lomba</a></li>
-                                            <li><a href="profil.php">Profil</a></li>
+                                            <?php
+                                              if(!empty($_SESSION['id_user'])){
+                                                ?>
+                                                <li><a href="profil.php">Profil</a></li>
+                                                <?php
+                                              }
+                                             ?>
+
+
                                             <li><a href="about.php">About</a></li>
                                         </ul>
                                         <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
@@ -93,8 +135,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>			
-                </div>			
+                    </div>
+                </div>
             </header>
 
             <!-- Menu -->

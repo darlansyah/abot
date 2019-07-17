@@ -1,4 +1,15 @@
-<?php include('header.php'); ?>
+<?php
+// session_start();
+//   if(empty($_SESSION['id_user'])){
+// 		echo "kosong";
+// 	}
+// 	else {
+// 		echo "ada";
+// 	}
+// die;
+
+
+include('header.php'); ?>
 
 <!-- Home -->
 
@@ -15,7 +26,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 <!--PP-->
 
@@ -26,7 +37,7 @@
 				<div class="col-lg-8">
 					<div class="courses_container">
 						<div class="row courses_row">
-							
+
 						</div>
 					</div>
 				</div>
@@ -50,6 +61,7 @@
 									<li><a href="profil.php">Profil</a></li>
 									<li><a href="my_lomba.php">Lomba</a></li>
 									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
+									<li><a href="logout.php">Logout</a></li>
 								</ul>
 							</div>
 						</div>
@@ -57,7 +69,7 @@
 						<!-- Latest Course -->
 
 						<!-- Gallery -->
-						
+
 					</div>
 				</div>
 			</div>
