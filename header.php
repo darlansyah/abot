@@ -1,7 +1,5 @@
 <?php
 include('admin/koneksi.php');
-
-
  ?>
 
 <!DOCTYPE html>

@@ -32,30 +32,59 @@ $id_user = $_SESSION['id_user'];
 
 		<!-- Top Bar -->
 		<div class="top_bar">
-			<div class="top_bar_container">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-								<ul class="top_bar_contact_list">
-									<li>
-										<i class="fa fa-phone" aria-hidden="true"></i>
-										<div>0852 4263 3355</div>
-									</li>
-									<li>
-										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<div>kfijogja@gmail.com</div>
-									</li>
-								</ul>
-								<div class="top_bar_login ml-auto">
-									<div class="login_button"><a href="#">Register or Login</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                    <div class="top_bar_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+                                        <ul class="top_bar_contact_list">
+                                            <li>
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                                <div>0852 4263 3355</div>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                                <div>kfijogja@gmail.com</div>
+                                            </li>
+                                        </ul>
+
+                                        <?php
+                                          if(empty($_SESSION['id_user'])){
+                                        		?>
+                                            <ul class="top_bar_contact_list ml-auto">
+                                                <li>
+                                                    <div><a href="daftar.php"> Register </a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="login.php"> Login</a></div>
+                                                </li>
+                                            </ul>
+                                            <?php
+                                        	}
+                                          else{
+                                            ?>
+                                            <ul class="top_bar_contact_list ml-auto">
+                                                <li>
+                                                    <div><?php echo   $_SESSION['nama'] ?></div>
+                                                </li>
+                                              </ul>
+                                            <?php
+                                          }
+
+                                         ?>
+
+                                        <!-- <div class="top_bar_login ml-auto">
+                                            <div class="login_button">
+                                              <a href="daftar.php"> Register </a>
+                                              or
+                                              <a href="login.php"> Login</a></div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 		<!-- Header Content -->
 		<div class="header_container">
@@ -227,17 +256,17 @@ $id_user = $_SESSION['id_user'];
 										if ($cek_user_detail_lomba == 1) {
 											?>
 											<div class="box-header">
-																						<a href="pendaftaran_status.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Upload</b></a>
-																				</div>
-											<?php
+											<a href="pendaftaran_status.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Upload Bukti Pembayaran</b></a>
+											</div>
+										<?php
 
 										}
 										else {
 											?>
 											<!-- stat -->
 											<div class="box-header">
-																						<a href="pendaftaran.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Daftar</b></a>
-																				</div>
+											<a href="pendaftaran.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Daftar</b></a>
+											</div>
 												<!-- end -->
 											<?php
 
