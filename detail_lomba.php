@@ -1,4 +1,9 @@
-<?php include('admin/koneksi.php'); ?>
+<?php include('admin/koneksi.php');
+$id_user = $_SESSION['id_user'];
+
+ ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +29,7 @@
 	<!-- Header -->
 
 	<header class="header">
-			
+
 		<!-- Top Bar -->
 		<div class="top_bar">
 			<div class="top_bar_container">
@@ -49,7 +54,7 @@
 						</div>
 					</div>
 				</div>
-			</div>				
+			</div>
 		</div>
 
 		<!-- Header Content -->
@@ -95,8 +100,8 @@
 						</div>
 					</div>
 				</div>
-			</div>			
-		</div>			
+			</div>
+		</div>
 	</header>
 
 	<!-- Menu -->
@@ -119,8 +124,8 @@
 				<li class="menu_mm"><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>
-	</div>	
-	
+	</div>
+
 	<!-- Home -->
 
 	<div class="home">
@@ -138,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 
 	<!-- Course -->
@@ -215,9 +220,32 @@
 										<div class="feature_text ml-auto"><?php echo $data['tgl_selesai'];?></div>
 									</div>
 
-									<div class="box-header">
-                                        <a href="pendaftaran.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Daftar</b></a> 
-                                    </div>
+									<?php
+										$querydl = mysqli_query($link,"SELECT * FROM lomba_detail WHERE id_lomba =  $id AND id_peserta = $id_user");
+										$cek_user_detail_lomba = mysqli_num_rows($querydl) ;
+
+										if ($cek_user_detail_lomba == 1) {
+											?>
+											<div class="box-header">
+																						<a href="pendaftaran_status.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Upload</b></a>
+																				</div>
+											<?php
+
+										}
+										else {
+											?>
+											<!-- stat -->
+											<div class="box-header">
+																						<a href="pendaftaran.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Daftar</b></a>
+																				</div>
+												<!-- end -->
+											<?php
+
+										}
+									 ?>
+
+
+
 								</div>
 							</div>
 						</div>
