@@ -193,7 +193,7 @@ $id_user = $_SESSION['id_user'];
 						<div class="course_title"><?php echo $data['judul'];?></div></br>
 
 						<!-- Course Image -->
-						<div class="course_image"><img src="images/<?php echo $data_lomba['foto'];?>" width="700"></div>
+						<div class="course_image"><img src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
 
 						<!-- Course Tabs -->
 						<div class="course_tabs_container">
@@ -278,12 +278,6 @@ $id_user = $_SESSION['id_user'];
 								</div>
 							</div>
 						</div>
-
-						<!-- Latest Course -->
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">Lomba Lainnya</div>
-						</div>
-
 					</div>
 				</div>
 			</div>
