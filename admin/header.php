@@ -119,7 +119,7 @@ desired effect
         <li class="active"><a href="index.php"><i class="fa fa-home"></i> <span>Home</span></a></li>
         <li><a href="user.php"><i class="fa fa-users"></i> <span>User</span></a></li>
         <li><a href="lomba.php"><i class="fa fa-camera"></i> <span>Lomba</span></a></li>
-        <li><a href="penilaian.php"><i class="fa fa-image"></i> <span>Penilaian</span></a></li>
+        <li><a href="hasil_lomba.php"><i class="fa fa-image"></i> <span>Hasil Lomba</span></a></li>
         <li><a href="logout.php"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
 
       </ul>
