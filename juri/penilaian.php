@@ -23,24 +23,28 @@
                     <thead>
                         <tr>
                             <th>Judul</th>
-                            <th>Jumlah Peserta</th>
                             <th>Tanggal Mulai</th>
                             <th>Tanggal Selesai</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $sql = "select * from lomba order by id_lomba desc";
+                        $query = mysqli_query($link, $sql);
+                        while($data = mysqli_fetch_array($query)){
+                        ?> 
                         <tr>
-                            <td>warna warni indonesia</td>
-                            <td>150</td>
-                            <td>23/05/2019</td>
-                            <td>23/05/2019</td>
+                            <td><?php echo $data['judul'];?></td>
+                            <td><?php echo $data['tgl_mulai'];?></td>
+                            <td><?php echo $data['tgl_selesai'];?></td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="penilaian_details.php" class="btn btn-default btn-sm" alt="Edit"><i class="fa fa-eye"></i></a>
+                                    <a href="penilaian_details.php?id=<?php echo $data['id_lomba'];?>" class="btn btn-default btn-sm" alt="Edit"><i class="fa fa-eye"></i></a>
                                 </div>
                             </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                     
                 </table>
