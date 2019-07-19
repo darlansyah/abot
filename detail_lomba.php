@@ -260,6 +260,8 @@ else{
 										$querydl = mysqli_query($link,"SELECT * FROM lomba_detail WHERE id_lomba =  $id AND id_peserta = $id_user");
 										$cek_user_detail_lomba = mysqli_num_rows($querydl) ;
 
+										
+
 										if ($cek_user_detail_lomba == 1) {
 											?>
 											<div class="box-header">

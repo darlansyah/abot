@@ -53,7 +53,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
                 <div class="course">
                     <div class="course_image"><img src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
                     <div class="course_body">
-                        <h3 class="course_title"><a href="detail_lomba.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
+                        <h3 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
                     </div>
                     <div class="course_footer">
                         <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
