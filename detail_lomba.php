@@ -1,5 +1,12 @@
 <?php include('admin/koneksi.php');
-$id_user = $_SESSION['id_user'];
+if (empty($_SESSION['id_user'])) {
+	$id_user = 0;
+}
+else{
+		$id_user = $_SESSION['id_user'];
+}
+
+
 
  ?>
 
