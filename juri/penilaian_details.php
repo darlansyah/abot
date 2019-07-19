@@ -1,5 +1,13 @@
-<?php include('header.php'); ?>
+<?php 
+include('header.php'); 
 
+$id = $_GET['id']; // mengambil variable ID Lomba
+
+// membuat query untuk menampilkan detail sesuai dengan ID Lomba
+$query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id'");
+$data_lomba = mysqli_fetch_array($query_lomba);
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -22,19 +30,15 @@
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td>Judul </td>
-                        <td>warna warni indonesia</td>
-                    </tr>
-                    <tr>
-                        <td>Jumlah Peserta </td>
-                        <td>150</td>
+                        <td><?php echo $data_lomba['judul'];?></td>
                     </tr>
                     <tr>
                         <td>Tanggal Mulai </td>
-                        <td>23/05/2019</td>
+                        <td><?php echo $data_lomba['tgl_mulai'];?></td>
                     </tr>
                     <tr>
                         <td>Tanggal Selesai </td>
-                        <td>23/05/2019</td>
+                        <td><?php echo $data_lomba['tgl_selesai'];?></td>
                     </tr>
                     
                 </table>
