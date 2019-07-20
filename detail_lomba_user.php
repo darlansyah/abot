@@ -1,5 +1,19 @@
 <?php include('admin/koneksi.php');
 $id_user = $_SESSION['id_user'];
+  $id = $_GET['id'];
+// var_dump($id_user);
+// DIE;
+$ket_upload = "Upload Foto Anda";
+
+$foto_karya = "SELECT * FROM lomba_detail WHERE id_lomba = $id AND id_peserta = $id_user";
+$query_karya = mysqli_query($link,$foto_karya);
+$fetch_karya = mysqli_fetch_array($query_karya);
+
+if (!empty($fetch_karya['foto_lomba'] )) {
+$ket_upload = "Berhasil Upload";
+}
+
+
 
  ?>
 
@@ -171,7 +185,7 @@ $id_user = $_SESSION['id_user'];
                 </div>
             </div>
         </div>
-    </div>			
+    </div>
 </div>
 
 <!-- Course -->
@@ -183,7 +197,7 @@ $id_user = $_SESSION['id_user'];
             <!-- Course -->
             <div class="col-lg-8">
                 <?php
-                $id = $_GET['id'];
+
                 $sql = "select * from lomba where id_lomba = '$id'";
                 $query = mysqli_query($link, $sql);
                 $data = mysqli_fetch_array($query);
@@ -207,9 +221,11 @@ $id_user = $_SESSION['id_user'];
             <div class="col-lg-4">
                 <div class="sidebar">
 
+
+
                     <!-- Feature -->
                     <div class="sidebar_section">
-                        <div class="sidebar_section_title">Upload Foto Anda</div>
+                        <div class="sidebar_section_title"><?= $ket_upload ?></div>
                         <div class="sidebar_feature">
                             <!-- <div class="course_price">Rp. <?php //echo $data['biaya_lomba']; ?></div> -->
 
@@ -232,18 +248,40 @@ $id_user = $_SESSION['id_user'];
                                     <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Tanggal Selesai:</span></div>
                                     <div class="feature_text ml-auto"><?php echo $data['tgl_selesai']; ?></div>
                                 </div>
-                                <form method="post" action="upload_pembayaran.php" enctype="multipart/form-data">
-                                    <div class="box-body">
-                                        <div class="form-group">
-                                            <input type="file" class="form-control" name="foto">
-                                            <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Upload Foto Karya</button>
-                                    </div>
-                                    <!-- /.box-footer -->
-                                </form>
+
+                                <?php
+                                if (empty($fetch_karya['foto_lomba'] )) {
+                                  ?>
+                                  <form method="post" action="upload_pembayaran.php" enctype="multipart/form-data">
+                                      <div class="box-body">
+                                          <div class="form-group">
+                                              <input type="file" class="form-control" name="foto">
+                                              <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+                                          </div>
+                                      </div>
+                                      <div class="box-footer">
+                                          <button type="submit" class="btn btn-primary">Upload Foto Karya</button>
+                                      </div>
+                                      <!-- /.box-footer -->
+                                  </form>
+                                  <?php
+                                }
+                                else{
+                                  ?>
+                                  <a href="hasil.php" class="btn btn-primary"> Lihat Hasil  </a>
+
+                                  <?php
+                                }
+
+
+
+
+                                 ?>
+
+
+
+
+
                             </div>
                         </div>
                     </div>

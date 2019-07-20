@@ -1,5 +1,15 @@
-<?php include('header.php'); ?>
-	
+<?php include('header.php');
+
+$id_user = $_SESSION['id_user'];
+
+$query_lomba = "SELECT * FROM lomba_detail where id_peserta = $id_user ";
+
+$data_lomba = mysqli_query($link,$query_lomba);
+
+$fetch_lomba = mysqli_fetch_array($data_lomba);
+
+?>
+
 	<!-- Home -->
 
 	<div class="home">
@@ -15,7 +25,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 
 	<!-- Courses -->
@@ -35,31 +45,45 @@
 					<div class="courses_container">
 						<div class="row courses_row">
 
-				            <?php
-				            $sql = "select * from lomba where status_lomba = 'Posting'";
-				            $query = mysqli_query($link, $sql);
-				            while($data = mysqli_fetch_array($query)){
-				            ?>
-				            <!-- Course -->
-				            <div class="col-lg-4 course_col">
-				                <div class="course">
-				                    <div class="course_image"><img src="images/<?php echo $data['foto'];?>" alt=""></div>
-				                    <div class="course_body">
-				                        <h3 class="course_title"><a href="detail_lomba.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
-				                    </div>
-				                    <div class="course_footer">
-				                        <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-				                            <div class="course_info">
-				                                <i class="fa fa-users" aria-hidden="true"></i>
-				                                <span>150 Peserta</span>
-				                            </div>
-				                            <div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
-				                        </div>
-				                    </div>
-				                </div>
-				            </div>
-				            <?php } ?>
+							<?php
+							$sql = "select * from lomba where status_lomba = 'Posting'";
+							$query = mysqli_query($link, $sql);
+							while($data = mysqli_fetch_array($query)){
+							?>
+							<!-- Course -->
+							<div class="col-lg-4 course_col">
+									<div class="course">
+											<div class="course_image"><img src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
+											<div class="course_body">
+													<h3 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
+											</div>
+											<div class="course_footer">
+													<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
 
+														<?php
+														if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran'] && ($data['id_lomba'] == $fetch_lomba['id_lomba'])){
+															?>
+																<div class="course_price ml-auto">Upload </div>
+																<?php
+														}
+														else {
+														?>
+
+																												<div class="course_info">
+																														<i class="fa fa-dollar" aria-hidden="true"></i>
+																														<span>Biaya Pendaftaran  :</span>
+																												</div>
+																												<div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
+														<?php
+														}
+														 ?>
+
+
+													</div>
+											</div>
+									</div>
+							</div>
+							<?php } ?>
 				        </div>
 
 						<!--slide-->
