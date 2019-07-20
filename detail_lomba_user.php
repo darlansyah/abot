@@ -115,7 +115,13 @@ $ket_upload = "Berhasil Upload";
                                 <ul class="main_nav">
                                     <li><a href="index.php">Home</a></li>
                                     <li><a href="lomba.php">Lomba</a></li>
-                                    <li><a href="profil.php">Profil</a></li>
+                                    <?php
+                                        if(!empty($_SESSION['id_user'])){
+                                    ?>
+                                        <li><a href="profil.php">Profil</a></li>
+                                    <?php
+                                        }
+                                    ?>
                                     <li><a href="about.php">About</a></li>
                                 </ul>
                                 </ul>
@@ -210,10 +216,24 @@ $ket_upload = "Berhasil Upload";
 
                     <!-- Course Tabs -->
                     <div class="course_tabs_container">
-                        <div class="tabs d-flex flex-row align-items-center justify-content-start">
-                            <div class="tab active"><?php echo $data['deskripsi']; ?></div>
+                            <div class="tabs d-flex flex-row align-items-center justify-content-start">
+                                <div class="tab active">Deskripsi</div>
+                            </div>
+                            <div class="tab_panels">
+
+                                <!-- Description -->
+                                <div class="tab_panel active">
+                                    <div class="tab_panel_title">Syarat & Ketentuan</div>
+                                    <div class="tab_panel_content">
+                                        <div class="tab_panel_text">
+                                            <p>
+                                                <?php echo $data['deskripsi'];?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
 
