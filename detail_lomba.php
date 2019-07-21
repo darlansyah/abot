@@ -108,7 +108,13 @@ else{
 								<ul class="main_nav">
 									<li><a href="index.php">Home</a></li>
 									<li><a href="lomba.php">Lomba</a></li>
-									<li><a href="profil.php">Profil</a></li>
+									 <?php
+                                        if(!empty($_SESSION['id_user'])){
+                                    ?>
+                                       <li><a href="profil.php">Profil</a></li>
+                                    <?php
+                                        }
+                                    ?>
 									<li><a href="about.php">About</a></li>
 								</ul>
 								</ul>
