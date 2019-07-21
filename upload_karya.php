@@ -19,11 +19,11 @@ if (move_uploaded_file($tmp, $path)) {
     $query = mysqli_query($link, $sql) or die(mysqli_error($link));
 
     if ($query) {
-			echo "berhasil";
-        //header("location:detail_lomba_user.php?id=$id");
+		//	echo "berhasil";
+      header("location:detail_lomba_user.php?id=$id");
     } else {
-      //  header("location:pendaftaran_status.php?id=$id");
-			echo "gagal";
+       header("location:pendaftaran_status.php?id=$id");
+			//echo "gagal";
     }
 	}
 

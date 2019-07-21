@@ -252,10 +252,10 @@ $ket_upload = "Berhasil Upload";
                                 <?php
                                 if (empty($fetch_karya['foto_lomba'] )) {
                                   ?>
-                                  <form method="post" action="upload_pembayaran.php" enctype="multipart/form-data">
+                                  <form method="post" action="upload_karya.php" enctype="multipart/form-data">
                                       <div class="box-body">
                                           <div class="form-group">
-                                              <input type="file" class="form-control" name="foto">
+                                              <input type="file" class="form-control" name="foto" required>
                                               <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
                                           </div>
                                       </div>
