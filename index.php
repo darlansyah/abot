@@ -29,7 +29,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 
 
 <!--List Lomba-->
-
+<br/><br/><br/><br/><br/>
 <div class="courses">
     <div class="section_background parallax-window" data-parallax="scroll" data-image-src="images/courses_background.jpg" data-speed="0.8"></div>
     <div class="container">
@@ -51,7 +51,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
             <!-- Course -->
             <div class="col-lg-4 course_col">
                 <div class="course">
-                    <div class="course_image"><img src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
+                    <div class="course_image"><img width="400" src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
                     <div class="course_body">
                         <h3 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
                     </div>
@@ -87,7 +87,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
         </div>
         <div class="row">
             <div class="col">
-                <div class="courses_button trans_200"><a href="lomba.php">view all courses</a></div>
+                <div class="courses_button trans_200"><a href="lomba.php">Lihat semua lomba</a></div>
             </div>
         </div>
     </div>

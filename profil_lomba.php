@@ -1,15 +1,4 @@
-<?php
-// session_start();
-//   if(empty($_SESSION['id_user'])){
-// 		echo "kosong";
-// 	}
-// 	else {
-// 		echo "ada";
-// 	}
-// die;
-
-
-include('header.php'); ?>
+<?php include('header.php') ?>
 
 <!-- Home -->
 
@@ -55,9 +44,10 @@ include('header.php'); ?>
 							</div>
 						</div>
 
-						<!-- Latest Course -->
-						
-
+						    <!-- Main content -->
+						   
+						    <!-- /.content -->
+						</div>
 						<!-- Gallery -->
 
 					</div>
@@ -79,5 +69,4 @@ include('header.php'); ?>
 			
 		</div>
 	</div>
-
-<?php include('footer.php'); ?>
+<?php include('footer.php') ?>

@@ -51,9 +51,9 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 							while($data = mysqli_fetch_array($query)){
 							?>
 							<!-- Course -->
-							<div class="col-lg-4 course_col">
+							<div class="col-lg-6 course_col">
 									<div class="course">
-											<div class="course_image"><img src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
+											<div class="course_image"><img width="350" src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
 											<div class="course_body">
 													<h3 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
 											</div>
@@ -69,11 +69,11 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 														else {
 														?>
 
-																												<div class="course_info">
-																														<i class="fa fa-dollar" aria-hidden="true"></i>
-																														<span>Biaya Pendaftaran  :</span>
-																												</div>
-																												<div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
+														<div class="course_info">
+														<i class="fa fa-dollar" aria-hidden="true"></i>
+														<span>Biaya Pendaftaran  :</span>
+														</div>
+																			<div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
 														<?php
 														}
 														 ?>
