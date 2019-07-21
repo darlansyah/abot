@@ -1,11 +1,45 @@
-<?php 
-include('header.php'); 
+<?php
+include('header.php');
+ //include('koneksi.php');
 
 $id = $_GET['id']; // mengambil variable ID Lomba
+$id_juri = 2; // asumsi
 
 // membuat query untuk menampilkan detail sesuai dengan ID Lomba
 $query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id'");
 $data_lomba = mysqli_fetch_array($query_lomba);
+
+//$lomba_detail = "SELECT users.nama, lomba_detail.* FROM `lomba_detail` INNER JOIN users ON lomba_detail.id_peserta = users.id_user WHERE lomba_detail.id_lomba = $id";
+// $lomba_detail = "SELECT juri_lomba.nilai, lomba_detail.*,users.* FROM juri_lomba INNER JOIN lomba_detail ON juri_lomba.id_lomba = lomba_detail.id_lomba
+// 														INNER JOIN users ON users.id_user = lomba_detail.id_peserta
+// WHERE lomba_detail.id_lomba = 2 AND juri_lomba.id_juri = $id";
+
+
+// lomba dettail 01
+$lomba_detail = "SELECT tb_nilai.*, lomba_detail.*, users.nama FROM lomba_detail
+                            INNER JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai
+														INNER JOIN users ON lomba_detail.id_peserta = users.id_user
+                            WHERE lomba_detail.id_lomba = $id";
+
+$query_lomba_detail = mysqli_query($link,$lomba_detail);
+
+// var_dump($query_lomba_detail);
+//
+// echo "<br/>";
+// lomba dettail 02
+$lomba_detail2 = "SELECT users.nama, lomba_detail.* FROM `lomba_detail`
+                  INNER JOIN users ON lomba_detail.id_peserta = users.id_user
+                  WHERE lomba_detail.id_lomba = $id";
+
+$query_lomba_detail2 = mysqli_query($link,$lomba_detail2);
+
+// var_dump($query_lomba_detail2);
+
+
+
+//
+// var_dump($query_lomba_detail);
+// die;
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -40,7 +74,7 @@ $data_lomba = mysqli_fetch_array($query_lomba);
                         <td>Tanggal Selesai </td>
                         <td><?php echo $data_lomba['tgl_selesai'];?></td>
                     </tr>
-                    
+
                 </table>
             </div>
             <!-- /.box-body -->
@@ -72,16 +106,46 @@ $data_lomba = mysqli_fetch_array($query_lomba);
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Fikri</td>   
-                            <td>http ://link.com</td>
-                            <td>00.00</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="nilai.php" class="btn btn-default btn-sm" alt="Edit" class="link-button">Beri Nilai</a>
-                                </div>
-                            </td>
-                        </tr>
+                      <?php
+                      while ($data_lomba_detail = mysqli_fetch_array($query_lomba_detail)) {
+                          while ($data_lomba_detail2 = mysqli_fetch_array($query_lomba_detail2)) {
+                        if (!empty($data_lomba_detail['foto_lomba']) && !empty($data_lomba_detail2['foto_lomba']) ) {
+                          if( ($data_lomba_detail['id_lombadetail_nilai']) == ($data_lomba_detail2['id_lombadetail']) ){
+                            ?>
+                            <tr>
+                                <td><?= $data_lomba_detail['nama'] ?></td>
+                                <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
+                              <td><?= $data_lomba_detail['nilai'] ?></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="nilai.php?id=<?= $id ?>&id_peserta=<?=$data_lomba_detail['id_peserta'] ?> " class="btn btn-default btn-sm"  class="link-button">Ubah Nilai</a>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <?php
+                          }
+                          else {
+                            ?>
+                            <tr>
+                                <td><?= $data_lomba_detail2['nama'] ?></td>
+                                <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail2['foto_lomba']; ?>" alt=""></td>
+                              <td>kosong</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="nilai.php?id=<?= $id ?>&id_peserta=<?=$data_lomba_detail2['id_peserta'] ?> " class="btn btn-default btn-sm"  class="link-button">Beri Nilai</a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        <?php
+                        }
+                      }
+                      }
+                      }
+                         ?>
+
                     </tbody>
                 </table>
             </div>
