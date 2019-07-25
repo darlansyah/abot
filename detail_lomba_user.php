@@ -1,6 +1,6 @@
 <?php include('admin/koneksi.php');
 $id_user = $_SESSION['id_user'];
-  $id = $_GET['id'];
+  $id = $_GET['id']; // id_lomba
 // var_dump($id_user);
 // DIE;
 $ket_upload = "Upload Foto Anda";
@@ -288,7 +288,7 @@ $ket_upload = "Berhasil Upload";
                                 }
                                 else{
                                   ?>
-                                  <a href="hasil.php" class="btn btn-primary"> Lihat Hasil  </a>
+                                  <a href="hasil.php?id_lomba=<?= $id  ?>" class="btn btn-primary"> Lihat Hasil  </a>
 
                                   <?php
                                 }
