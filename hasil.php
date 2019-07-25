@@ -33,40 +33,25 @@
 						                    <thead>
 						                        <tr>
 						                            <th>Nama</th>
-						                            <th>Nomor Peserta</th>
 						                            <th>Foto</th>
 						                            <th>Nilai</th>
-						                            <th>Status</th>
 						                        </tr>
 						                    </thead>
 						                    <tbody>
 						                        <tr>
-						                            <td>Fikri</td> 
-						                            <td>85</td>  
+						                            <td>Fikri</td>  
 						                            <td>http ://link.com</td>
 						                            <td>90</td>
-						                            <td>selesai</td>
 						                        </tr>
 						                        <tr>
-						                            <td>Deva</td> 
-						                            <td>88</td>  
+						                            <td>Deva</td>  
 						                            <td>http ://link.com</td>
 						                            <td>83</td>
-						                            <td>selesai</td>
 						                        </tr>
 						                        <tr>
-						                            <td>Dede</td> 
-						                            <td>75</td>  
+						                            <td>Dede</td>  
 						                            <td>http ://link.com</td>
 						                            <td>70</td>
-						                            <td>selesai</td>
-						                        </tr>
-						                        <tr>
-						                            <td>Dedi</td> 
-						                            <td>55</td>  
-						                            <td>http ://link.com</td>
-						                            <td>83</td>
-						                            <td>selesai</td>
 						                        </tr>
 						                    </tbody>
 						                </table>

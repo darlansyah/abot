@@ -31,7 +31,7 @@ $data = mysqli_fetch_array($query);
                         <div class="box-body">
                             <div class="form-group col-md-10">
                                 <label>Judul</label>
-                                <input type="text" class="form-control" placeholder="Judul Lomba" name="judul">
+                                <input type="text" class="form-control" placeholder="Judul Lomba" name="judul" value = >
 
                             </div>
                             <div class="form-group col-md-4">
