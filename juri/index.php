@@ -1,11 +1,19 @@
-<?php include('header.php'); ?>
+<?php
+include('header.php');
+
+
+
+ ?>
+
+
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Home
+            Hello : <?= $_SESSION['id_user']; ?>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>

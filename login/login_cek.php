@@ -18,12 +18,22 @@ $num = mysqli_num_rows($query);
 if ($num > 0) {
 
     $data = mysqli_fetch_array($query);
+    if ($data['kategori'] == 'juri') {
+      $_SESSION['id_user'] = $data['id_user'];
+      $_SESSION['nama'] = $data['nama'];
+      header('location:../juri/');
 
-    $_SESSION['id_user'] = $data['id_user'];
-    $_SESSION['nama'] = $data['nama'];
+    }
+    if ($data['kategori'] == 'admin') {
+      // $_SESSION['id_user'] = $data['id_user'];
+      // $_SESSION['nama'] = $data['nama'];
+      // header('location:admin/')
+      echo "admin";
+    }
 
-    header("location:profil.php");
+
+    // header("location:profil.php");
 } else {
-    header("location:login.php?pesan=Username atau password salah!");
+    // header("location:login.php?pesan=Username atau password salah!");
 }
 ?>
