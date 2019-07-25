@@ -14,32 +14,33 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	
+
 	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/layout.css">
-	
+
 </head>
 <body>
 
 	<!-- Primary Page Layout -->
 
 	<div class="container">
-		
+
 		<div class="form-bg">
-			<form>
+			<form action="login_cek.php" method="POST">
 				<h2>Login</h2>
-				<p><input type="text" placeholder="Email"></p>
-				<p><input type="password" placeholder="Password"></p>
+				<p><input type="text" name="user" placeholder="Email" required></p>
+				<p><input type="password" name="pass" placeholder="Password" required></p>
+				<p> <input type="checkbox"  name="kategori" value="juri">Juri </p>
 				<button type="submit"></button>
 			<form>
 		</div>
 
-	
+
 		<p class="forgot">Belum punya akun? <a href="">Registrasi</a></p>
 
 
@@ -49,7 +50,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
 	<script>window.jQuery || document.write("<script src='js/jquery-1.5.1.min.js'>\x3C/script>")</script>
 	<script src="js/app.js"></script>
-	
+
 <!-- End Document -->
 </body>
 </html>
