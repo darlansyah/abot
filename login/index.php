@@ -38,7 +38,7 @@
 				<p><input type="password" name="pass" placeholder="Password" required></p>
 				<!-- <p> <input type="checkbox"  name="kategori" value="juri">Juri </p> -->
 				<label for="kategori">
-				  <input type="checkbox" name="kategori" value="juri" />
+				  <input type="checkbox" name="kategori" value="juri" checked />
 				  <span>Juri</span>
 				</label>
 				<button type="submit"></button>

@@ -1,13 +1,20 @@
 <?php
 include('koneksi.php');
-
+if (!isset($_SESSION['id_user'])) {
+        header("location:../login/");
+        exit;
+}
 $aksi = $_POST['aksi'];
 
 
 $id_peserta = $_POST['id_peserta'];
- $id_lomba = $_POST['id_lomba'];
- $nilai = $_POST['nilai'];
- $id_juri = 13; // arumsi
+$id_lomba = $_POST['id_lomba']; // id_lomba
+$nilai = $_POST['nilai'];
+
+$id_juri = $_SESSION['id_user'];
+$id_jurilomba =  id_jurilomba($id_lomba,$id_juri);
+
+
 
 
 // $juri_lomba  = "SELECT id_jurilomba FROM juri_lomba WHERE id_lomba = $id_lomba AND id_juri = $id_juri";
@@ -28,7 +35,7 @@ $id_lombadetail = $id_lombadetail_f['id_lombadetail'];
 // var_dump($id_lombadetail); die;
 
 if ($aksi == "simpan") {
-  $str_nilai = "INSERT INTO tb_nilai VALUES ('','$id_juri','$id_lombadetail','$nilai')";
+  $str_nilai = "INSERT INTO tb_nilai VALUES ('','$id_jurilomba','$id_lombadetail','$nilai')";
   $queri_n = mysqli_query($link,$str_nilai);
 
   if ($queri_n) {
@@ -42,7 +49,7 @@ if ($aksi == "simpan") {
 if($aksi == "update"){
   $str_nilai = "UPDATE tb_nilai SET
                 nilai = $nilai
-                WHERE id_jurilomba = $id_juri
+                WHERE id_jurilomba = $id_jurilomba
                 AND id_lombadetail_nilai = $id_lombadetail";
 
   $queri_n = mysqli_query($link,$str_nilai);

@@ -4,7 +4,7 @@ if (!isset($_SESSION['id_user'])) {
         header("location:../login/");
         exit;
 }
-
+$id_juri = $_SESSION['id_user'];
 
 ?>
 <html>
@@ -122,7 +122,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="index.php"><i class="fa fa-home"></i> <span>Home</span></a></li>
         <li><a href="penilaian.php"><i class="fa fa-image"></i> <span>Penilaian</span></a></li>
-        <li><a href="logout.php"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
+        <li><a href="../login/logout.php"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
 
       </ul>
       <!-- /.sidebar-menu -->

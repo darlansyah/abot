@@ -1,5 +1,6 @@
 <?php
-include('../admin/koneksi.php');
+include('koneksi.php');
+
 
 $username = $_POST['user'];
 $password = md5($_POST['pass']);
@@ -34,6 +35,7 @@ if ($num > 0) {
 
     // header("location:profil.php");
 } else {
+  echo "username or password salah";
     // header("location:login.php?pesan=Username atau password salah!");
 }
 ?>
