@@ -3,23 +3,41 @@ include('header.php');
 // include('koneksi.php');
 $id = $_GET['id']; // id lombah
 $id_peserta = $_GET['id_peserta']; // id peserta
-$lomba_detail = "SELECT users.nama, lomba_detail.* FROM `lomba_detail` INNER JOIN users ON lomba_detail.id_peserta = users.id_user WHERE lomba_detail.id_lomba = $id AND lomba_detail.id_peserta = $id_peserta  ";
+$id_jurilomba = 13; // asumsi
+// $lomba_detail = "SELECT users.nama, lomba_detail.* FROM `lomba_detail` INNER JOIN users ON lomba_detail.id_peserta = users.id_user WHERE lomba_detail.id_lomba = $id AND lomba_detail.id_peserta = $id_peserta  ";
+ $lomba_detail = "SELECT tb_nilai.*, lomba_detail.*, users.nama FROM lomba_detail
+                 LEFT JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai AND tb_nilai.id_jurilomba = $id_jurilomba
+                 INNER JOIN users ON lomba_detail.id_peserta = users.id_user
+                 WHERE lomba_detail.id_lomba = $id AND lomba_detail.id_peserta = $id_peserta";
+
 $query_lomba_detail = mysqli_query($link,$lomba_detail);
 $data_lomba_detail = mysqli_fetch_array($query_lomba_detail);
-// print_r($fetch_lomba_detail);
+
+if(empty($data_lomba_detail['id_nilai'])){
+  $aksi = "simpan";
+  $nilai = 0;
+}
+else{
+  $aksi = "update";
+  $nilai = $data_lomba_detail['nilai'];
+}
+
+
+
+// $id_juri = 4; // arumsi
+//
+//
+// $juri_lomba  = "SELECT id_jurilomba FROM juri_lomba WHERE id_lomba = $id AND id_juri = $id_juri";
+// $query_jl = mysqli_query($link,$juri_lomba);
+// $id_jurilomba_f = mysqli_fetch_array($query_jl);
+// $id_jurilomba = $id_jurilomba_f['id_jurilomba'];
+// var_dump($id_jurilomba);
 // die;
-
-// var_dump($_GET);
-// die;
-//
-//
-//
-
-
-
 
 
 ?>
+
+
 
 
 
@@ -70,20 +88,21 @@ $data_lomba_detail = mysqli_fetch_array($query_lomba_detail);
 
                             <tr>
                             <form action="nilai_lomba.php" method="post">
+                              <input type="hidden" name="aksi" value="<?= $aksi ?>">
                               <input type="hidden" name="id_peserta" value="<?= $id_peserta ?>">
                               <input type="hidden" name="id_lomba" value="<?= $id ?>">
 
 
                                 <div class="form-group">
                                     <td>Nilai</td>
-                                    <input type="number" class="form-control"  placeholder="Nilai" name="nilai">
+                                    <input type="number" class="form-control"  placeholder="Nilai" name="nilai" value="<?= $nilai ?>">
                                 </div>
 
                                 </tr>
 
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary"><?= $aksi?></button>
                             </div>
                             <!-- /.box-footer -->
                           </form>
