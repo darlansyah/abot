@@ -30,10 +30,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "select * from lomba order by id_lomba desc";
+                        $sql = "SELECT juri_lomba.*, lomba.* FROM juri_lomba
+			                          LEFT JOIN lomba ON juri_lomba.id_lomba = lomba.id_lomba
+                                WHERE juri_lomba.id_juri = $id_juri";
                         $query = mysqli_query($link, $sql);
                         while($data = mysqli_fetch_array($query)){
-                        ?> 
+                        ?>
                         <tr>
                             <td><?php echo $data['judul'];?></td>
                             <td><?php echo $data['tgl_mulai'];?></td>
@@ -46,7 +48,7 @@
                         </tr>
                         <?php } ?>
                     </tbody>
-                    
+
                 </table>
             </div>
             <!-- /.box-body -->

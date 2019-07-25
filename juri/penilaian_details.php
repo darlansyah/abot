@@ -3,11 +3,11 @@ include('header.php');
  // include('koneksi.php');
 
 $id = $_GET['id']; // mengambil variable ID Lomba
-$id_juri = 2; // asumsi
-$id_jurilomba = 13; // asumsi
+// $id_juri = $_SESSION['id_user'];
 
-// daftar id_juri :
-// - 4
+
+$id_jurilomba =  id_jurilomba($id,$id_juri);
+
 
 // membuat query untuk menampilkan detail sesuai dengan ID Lomba
 $query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id'");
