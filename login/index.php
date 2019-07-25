@@ -35,14 +35,14 @@
 				<h2>Login</h2>
 				<p><input type="text" name="user" placeholder="Email" required></p>
 				<p><input type="password" name="pass" placeholder="Password" required></p>
-				<p> <input type="checkbox"  name="kategori" value="juri">Juri </p>
+				<!-- <p> <input type="checkbox"  name="kategori" value="juri">Juri </p> -->
+				<label for="kategori">
+				  <input type="checkbox" name="kategori" value="juri" />
+				  <span>Juri</span>
+				</label>
 				<button type="submit"></button>
 			<form>
 		</div>
-
-
-		<p class="forgot">Belum punya akun? <a href="">Registrasi</a></p>
-
 
 	</div><!-- container -->
 
