@@ -18,7 +18,7 @@ $path = "upload/" . $fotobaru;
 
 if (move_uploaded_file($tmp, $path)) {
 
-    $sql = "update lomba set judul = '$judul', deskripsi = '$deskripsi', foto = '$path', tgl_daftar = '$tanggal_daftar', tgl_mulai = '$tanggal_mulai', tgl_selesai = '$tanggal_selesai', biaya_lomba = '$biaya_daftar',status_lomba = '$status'"; }
+    $sql = "UPDATE lomba SET judul = '$judul', deskripsi = '$deskripsi', foto = '$path', tgl_daftar = '$tanggal_daftar', tgl_mulai = '$tanggal_mulai', tgl_selesai = '$tanggal_selesai', biaya_lomba = '$biaya_daftar',status_lomba = '$status'"; }
     $query = mysqli_query($link, $sql) or die(mysqli_error($link));
 
     if ($query) {
