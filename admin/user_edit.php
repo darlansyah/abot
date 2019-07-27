@@ -14,7 +14,7 @@ if($data['kategori'] == 'juri') {
     $cek_juri = 'checked="checked"';
 }
 ?>
-
+ 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
