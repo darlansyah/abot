@@ -10,7 +10,10 @@ $str_data = "SELECT users.*, lomba_detail.*,tb_nilai.*, AVG(tb_nilai.nilai) AS '
 						LEFT JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai
             WHERE users.kategori = 'peserta' AND lomba_detail.id_lomba = $id_lomba
             GROUP BY tb_nilai.id_lombadetail_nilai
-            ORDER BY tb_nilai.nilai DESC";
+            ORDER BY AVG(tb_nilai.nilai) DESC";
+     echo $str_data;
+
+
 
 $query = mysqli_query($link,$str_data);
 

@@ -42,7 +42,7 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
             Detail Lomba
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li><a href="penilaian.php"><i class="fa fa-dashboard"></i> Penilaian</a></li>
             <li class="active">Here</li>
         </ol>
     </section>

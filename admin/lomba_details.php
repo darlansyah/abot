@@ -147,7 +147,7 @@ $query_peserta = mysqli_query($link, "select * from lomba_detail a "
                             <th>Foto</th>
                             <th>Nilai</th>
                             <th>Status</th>
-                            <th>Asi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

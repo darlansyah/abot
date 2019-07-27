@@ -30,7 +30,7 @@
                             <th>Tanggal Lahir</th>
                             <th>Alamat</th>
                             <th>No HP</th>
-                            <th>Foto</th>
+                            <!-- <th>Foto</th> -->
                             <th>Kategori</th>
                             <th>Aksi</th>
                         </tr>
@@ -47,7 +47,7 @@
                             <td><?php echo $data['tanggal_lahir'];?></td>
                             <td><?php echo $data['alamat'];?></td>
                             <td><?php echo $data['no_hp'];?></td>
-                            <td>-</td>
+                            <!-- <td>-</td> -->
                             <td><?php echo $data['kategori'];?></td>
                             <td>
                                 <div class="btn-group">

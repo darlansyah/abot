@@ -79,7 +79,7 @@ else{
                             </tr>
                             <tr>
                             <div class="form-group">
-                                <td>Foto :</td>
+                                <td>Foto :</td></br>
                                 <td>
                                     <img  width="500" src="../admin/upload/<?=  $data_lomba_detail['foto_lomba'] ?>" alt="gambar" >
                                     <p> </p>

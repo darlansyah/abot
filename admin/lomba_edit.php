@@ -3,6 +3,17 @@ $id = $_GET['id'];
 $sql = "select * from lomba where id_lomba = '$id'";
 $query = mysqli_query($link, $sql);
 $data = mysqli_fetch_array($query);
+
+$draft = $posting = '';
+
+if($data['status_lomba'] == 'draft') {
+    $draft = 'checked="checked"';
+}
+
+if($data['status_lomba'] == 'posting') {
+    $posting = 'checked="checked"';
+}
+?>
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -31,7 +42,7 @@ $data = mysqli_fetch_array($query);
                         <div class="box-body">
                             <div class="form-group col-md-10">
                                 <label>Judul</label>
-                                <input type="text" class="form-control" placeholder="Judul Lomba" name="judul" value = >
+                                <input type="text" class="form-control" placeholder="Judul Lomba" name="judul" value="<?php echo $data['judul'];?>">
 
                             </div>
                             <div class="form-group col-md-4">
@@ -40,7 +51,7 @@ $data = mysqli_fetch_array($query);
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="tgl_daftar" name="tanggal_daftar">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_daftar" value="<?php echo date("d-m-Y", strtotime($data['tanggal_daftar']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -49,7 +60,7 @@ $data = mysqli_fetch_array($query);
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="tgl_mulai" name="tanggal_mulai">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_mulai" value="<?php echo date("d-m-Y", strtotime($data['tanggal_mulai']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -58,12 +69,12 @@ $data = mysqli_fetch_array($query);
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="tgl_selesai" name="tanggal_selesai">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_selesai" value="<?php echo date("d-m-Y", strtotime($data['tanggal_selesai']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Biaya Daftar</label>
-                                <input type="text" class="form-control"  placeholder="Harga Tiket Masuk" name="biaya_daftar">
+                                <input type="text" class="form-control" placeholder="biaya daftar" name="biaya_daftar" value="<?php echo $data['biaya_daftar'];?>">
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Foto</label>
@@ -71,15 +82,15 @@ $data = mysqli_fetch_array($query);
                             </div>
                             <div class="form-group col-md-4">
                                 <label>
-                                    <input type="radio" name="status" class="minimal" value="Draft"> Draft
+                                    <input type="radio" name="status_lomba" class="minimal" value="draft" <?php echo $draft;?>> draft
                                 </label>
                                 <label>
-                                    <input type="radio" name="status" class="minimal" value="Posting"> Posting
+                                    <input type="radio" name="status_lomba" class="minimal" value="Posting" <?php echo $draft;?>> Posting
                                 </label>
                             </div>
                             <div class="form-group col-md-12">
                                 <label>Deskripsi</label>
-                                <textarea class="textarea" name="deskripsi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                <textarea class="textarea" name="deskripsi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" value="<?php echo $data['judul'];?>">
                                               
                                 </textarea>
                             </div>

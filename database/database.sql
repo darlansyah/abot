@@ -56,9 +56,9 @@ CREATE TABLE `lomba` (
 /*Data for the table `lomba` */
 
 insert  into `lomba`(`id_lomba`,`judul`,`deskripsi`,`foto`,`tgl_daftar`,`tgl_mulai`,`tgl_selesai`,`biaya_lomba`,`status_lomba`) values 
-(1,'TEsting','deskripsi',NULL,'2019-05-27','2019-05-29','2019-05-31',50000,'Draft'),
+(1,'TEsting','deskripsi',NULL,'2019-05-27','2019-05-29','2019-05-31',50000,'Posting'),
 (2,'Lomba fotografi pantai siung','<p>perlombaan fotografi pantai siung<br></p>','0107201915564115-fotor.jpg','2019-07-01','2019-07-07','2019-07-14',50000,'Posting'),
-(3,'coba','<p>asdad<br></p>','01072019161340civic.jpg','1970-01-01','1970-01-01','1970-01-01',10000,'Draft');
+(3,'coba','<p>asdad<br></p>','01072019161340civic.jpg','1970-01-01','1970-01-01','1970-01-01',10000,'Posting');
 
 /*Table structure for table `lomba_detail` */
 
@@ -71,17 +71,19 @@ CREATE TABLE `lomba_detail` (
   `foto_lomba` varchar(255) DEFAULT NULL,
   `tgl_upload` datetime DEFAULT NULL,
   `id_status` tinyint(6) DEFAULT NULL,
+  `foto_bukti_pembayaran` varchar(255) DEFAULT NULL,
   `nilai_lomba` decimal(3,2) DEFAULT NULL,
   `deskripsi_nilai` text,
   `tgl_nilai` datetime DEFAULT NULL,
   `id_juri` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_lombadetail`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `lomba_detail` */
 
-insert  into `lomba_detail`(`id_lombadetail`,`id_lomba`,`id_peserta`,`foto_lomba`,`tgl_upload`,`id_status`,`nilai_lomba`,`deskripsi_nilai`,`tgl_nilai`,`id_juri`) values 
-(1,2,5,NULL,NULL,3,NULL,NULL,NULL,NULL);
+insert  into `lomba_detail`(`id_lombadetail`,`id_lomba`,`id_peserta`,`foto_lomba`,`tgl_upload`,`id_status`,`foto_bukti_pembayaran`,`nilai_lomba`,`deskripsi_nilai`,`tgl_nilai`,`id_juri`) values 
+(1,2,5,NULL,NULL,3,NULL,NULL,NULL,NULL,NULL),
+(2,2,6,NULL,NULL,3,'11072019133905credit.png',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `status_lomba` */
 
@@ -115,7 +117,7 @@ CREATE TABLE `users` (
   `no_hp` varchar(15) NOT NULL,
   `foto_profil` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
@@ -124,7 +126,8 @@ insert  into `users`(`id_user`,`kategori`,`nama`,`email`,`password`,`tanggal_lah
 (2,'juri','Hendry','hendry@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1996-04-04','Jogja','085682377236523',NULL),
 (3,'juri','Anton','anton@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1996-04-04','Jogja','085623882366',NULL),
 (4,'juri','Idul','idul@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','1996-04-04','Jogja','0992388237723',NULL),
-(5,'peserta','Joni','joni@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','2019-07-01','jogja','0239887723',NULL);
+(5,'peserta','Joni','joni@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','2019-07-01','jogja','0239887723',NULL),
+(6,'peserta','Wawan','wawan@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','2000-04-04','Jogja','087812341234','11072019131323billing.jpg');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
