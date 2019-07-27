@@ -27,6 +27,6 @@ if (move_uploaded_file($tmp, $path)) {
         header('location:lomba_tambah.php');
     }
 } else {
-    
+
 }
 ?>
