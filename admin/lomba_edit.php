@@ -6,11 +6,11 @@ $data = mysqli_fetch_array($query);
 
 $draft = $posting = '';
 
-if($data['status_lomba'] == 'draft') {
+if($data['status_lomba'] == 'Draft') {
     $draft = 'checked="checked"';
 }
 
-if($data['status_lomba'] == 'posting') {
+if($data['status_lomba'] == 'Posting') {
     $posting = 'checked="checked"';
 }
 ?>
@@ -82,15 +82,15 @@ if($data['status_lomba'] == 'posting') {
                             </div>
                             <div class="form-group col-md-4">
                                 <label>
-                                    <input type="radio" name="status_lomba" class="minimal" value="draft" <?php echo $draft;?>> draft
+                                    <input type="radio" name="status_lomba" class="minimal" value="Draft" <?php echo $draft;?>> draft
                                 </label>
                                 <label>
-                                    <input type="radio" name="status_lomba" class="minimal" value="Posting" <?php echo $draft;?>> Posting
+                                    <input type="radio" name="status_lomba" class="minimal" value="Posting" <?php echo $posting;?>> Posting
                                 </label>
                             </div>
                             <div class="form-group col-md-12">
                                 <label>Deskripsi</label>
-                                <textarea class="textarea" name="deskripsi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" value="<?php echo $data['judul'];?>">
+                                <textarea class="textarea" name="deskripsi" value="<?php echo $data['judul'];?>" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" >
                                               
                                 </textarea>
                             </div>
