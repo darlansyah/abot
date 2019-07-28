@@ -2,18 +2,7 @@
 
 include('koneksi.php');
 
-// var_dump($_FILES['foto']['name']);
-// var_dump($_POST['foto_lama']);
-
-
 $id = $_POST['id'];
-// if ($_POST['foto_lama']) {
-//   $data_fotol = "SELECT * FROM lomba WHERE id_lomba = $id";
-//   $data_fotol_q = mysqli_query($link,$data_fotol);
-//   // $jumlah =
-// }
-// die;
-
 
 $judul = $_POST['judul'];
 $tanggal_daftar = date("Y-m-d", strtotime($_POST['tanggal_daftar']));
@@ -36,6 +25,7 @@ if(!empty ($_FILES['foto']['name'])){
 
   if (move_uploaded_file($tmp, $path)) {
 
+      //query update berdasarkan id lomba
       $sql = "UPDATE lomba SET
           judul = '$judul',
           deskripsi = '$deskripsi',
