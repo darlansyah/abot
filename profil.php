@@ -1,15 +1,17 @@
 <?php
-// session_start();
-//   if(empty($_SESSION['id_user'])){
-// 		echo "kosong";
-// 	}
-// 	else {
-// 		echo "ada";
-// 	}
-// die;
+include('header.php');
+
+$id_user = $_SESSION['id_user'];
+$query_lomba = "SELECT * FROM users where id_user = $id_user " ;
+
+$data_lomba = mysqli_query($link,$query_lomba);
+
+$fetch_lomba = mysqli_fetch_array($data_lomba);
 
 
-include('header.php'); ?>
+?>
+
+
 
 <!-- Home -->
 
@@ -38,12 +40,12 @@ include('header.php'); ?>
 						<!-- Categories -->
 						<div class="sidebar_section">
 							<div class="box-body box-profile">
-								
+
 					             <img class="profile-user-img img-responsive img-circle" src="images/am.jpg" alt="User profile picture"></br>
 
-					              <h3 class="profile-username text-center">A.M Ibrahim</h3>
-					             
-					              <p class="text-muted text-center">Landscaper</p>
+					              <h3 class="profile-username text-center"><?= $fetch_lomba['nama'] ?></h3>
+
+					              <p class="text-muted text-center"><?= $fetch_lomba['kategori'] ?></p>
 					         </div>
 							<div class="sidebar_categories">
 								<ul>
@@ -56,7 +58,7 @@ include('header.php'); ?>
 						</div>
 
 						<!-- Latest Course -->
-						
+
 
 						<!-- Gallery -->
 
@@ -76,7 +78,7 @@ include('header.php'); ?>
 					</div>
 				</div>
 
-			
+
 		</div>
 	</div>
 

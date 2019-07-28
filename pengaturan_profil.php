@@ -1,5 +1,13 @@
-<?php include('header.php'); ?>
-	
+<?php include('header.php');
+$id_user = $_SESSION['id_user'];
+$query_lomba = "SELECT * FROM users where id_user = $id_user " ;
+
+$data_lomba = mysqli_query($link,$query_lomba);
+
+$fetch_lomba = mysqli_fetch_array($data_lomba);
+
+?>
+
 	<!-- Home -->
 
 	<div class="home">
@@ -16,7 +24,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 
 	<!-- Courses -->
@@ -43,12 +51,12 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" class="form-control" placeholder="Nama" name="nama">
+                                <input type="text" class="form-control" placeholder="Nama" name="nama" value="<?= $fetch_lomba['nama'] ?>">
 
                             </div>
                             <div class="form-group">
-                                <label>Email</label>                              
-                                <input type="email" class="form-control"  placeholder="Email" name="email">
+                                <label>Email</label>
+                                <input type="email" class="form-control"  placeholder="Email" name="email" value="<?= $fetch_lomba['email'] ?>">
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Lahir</label>
@@ -56,32 +64,29 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" value="<?= $fetch_lomba['tanggal_lahir'] ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <input type="text" class="form-control"  placeholder="Alamat" name="alamat">
+                                <input type="text" class="form-control"  placeholder="Alamat" name="alamat" value="<?= $fetch_lomba['alamat'] ?>" >
                             </div>
                             <div class="form-group">
                                 <label>Handphone</label>
-                                <input type="text" class="form-control"  placeholder="Handphone" name="handphone">
+                                <input type="text" class="form-control"  placeholder="Handphone" name="handphone" value="<?= $fetch_lomba['no_hp'] ?>">
                             </div>
   							<div class="form-group">
                                 <label>Photo Profil</label>
-                                <input type="text" class="form-control"  placeholder="Photo Profil" name="handphone">
+                                <input type="text" class="form-control"  placeholder="Photo Profil" name="foto">
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Password Baru</label>
                                 <input type="text" class="form-control" placeholder="Password" name="password">
                             </div>
-                            <div class="form-group">
-                                <label>Biografi</label>
-                                <input type="textarea" class="form-control" placeholder="Biografi" name="password">
-                            </div>
+
                         </div>
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                         <!-- /.box-footer -->
 	                    </form>
