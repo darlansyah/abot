@@ -120,6 +120,7 @@ $id_user = $_SESSION['id_user'];
 									<li><a href="profil.php">Profil</a></li>
 									<li><a href="my_lomba.php">Lomba</a></li>
 									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
+									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
 								</ul>
 							</div>
 						</div>
