@@ -36,7 +36,6 @@ $pe
 	<!-- Primary Page Layout -->
 
 	<div class="container">
-
 		<div class="form-bg">
 			<form action="login_cek.php" method="POST">
 				<h2>Login</h2>
