@@ -6,6 +6,14 @@ if (empty($_SESSION['id_user'])) {
 
 $id_user = $_SESSION['id_user'];
 
+
+
+$query_lomba = "SELECT * FROM users where id_user = $id_user " ;
+
+$data = mysqli_query($link,$query_lomba);
+
+$user = mysqli_fetch_array($data);
+
 ?>
 
 	<!-- Home -->
@@ -109,9 +117,9 @@ $id_user = $_SESSION['id_user'];
 						<!-- Categories -->
 						<div class="sidebar_section">
 							<div class="box-body box-profile">
-					              <img class="profile-user-img img-responsive img-circle" src="images/am.jpg" alt="User profile picture">
+					              <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?= $user['foto_profil'] ?>" width="100" alt="User profile picture">
 
-					              <h3 class="profile-username text-center">AM Ibrahim</h3>
+					              <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
 
 					              <p class="text-muted text-center">Landscaper</p>
 					         </div>
@@ -119,7 +127,6 @@ $id_user = $_SESSION['id_user'];
 								<ul>
 									<li><a href="profil.php">Profil</a></li>
 									<li><a href="my_lomba.php">Lomba</a></li>
-									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
 									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
 								</ul>
 							</div>

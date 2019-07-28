@@ -75,22 +75,7 @@ $user = mysqli_fetch_array($data);
 										                        <td>No Hp</td>
 										                        <td><?=$user['no_hp']; ?></td>
 										                    </tr>
-										                     <tr>
-										                        <td>Foto </td>
-																						<?php
-																						if(empty($user['foto_profil'])){
-																							?>
-																							<td>kosong </td>
-																							<?php
-																						}
-																						else{
-																							?>
-																							 <td><img src="../upload.<?= $user['foto_profil']; ?>" width="700"></td>
-																							<?php
-																						}
-																						 ?>
 
-										                    </tr>
 
 
 										                </table>
@@ -116,9 +101,9 @@ $user = mysqli_fetch_array($data);
 						<!-- Categories -->
 						<div class="sidebar_section">
 							<div class="box-body box-profile">
-					              <img class="profile-user-img img-responsive img-circle" src="../upload/<?php echo $data_lomba['foto_profil'];?>" width="700" alt="">
+					              <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?php echo $user['foto_profil'];?>" width="100" alt="">
 
-					              <h3 class="profile-username text-center"><?php echo   $_SESSION['nama'] ?></h3>
+					              <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
 
 					              <p class="text-muted text-center">Landscaper</p>
 					         </div>
