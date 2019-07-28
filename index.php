@@ -4,7 +4,7 @@ include('header.php');
 
 $id_user = $_SESSION['id_user'];
 
-$query_lomba = "SELECT * FROM lomba_detail where id_peserta = $id_user ";
+$query_lomba = "SELECT * FROM lomba_detail where id_peserta = $id_user " ;
 
 $data_lomba = mysqli_query($link,$query_lomba);
 
@@ -44,7 +44,10 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
         <div class="row courses_row">
 
             <?php
-            $sql = "select * from lomba where status_lomba = 'Posting'";
+            $sql = "SELECT * FROM `lomba`
+                    WHERE status_lomba = 'Posting'
+                    ORDER BY `lomba`.`id_lomba`  DESC
+                    LIMIT 3";
             $query = mysqli_query($link, $sql);
             while($data = mysqli_fetch_array($query)){
             ?>
