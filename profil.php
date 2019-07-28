@@ -65,19 +65,19 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 										                    </tr>
 										                    <tr>
 										                        <td>Email </td>
-										                        <td><?= $fetch_lomba['email']?></td>
+										                        <td></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Tanggal Lahir</td>
-										                        <td><?= $fetch_lomba['tanggal_lahir']?></td>
+										                        <td></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Alamat</td>
-										                        <td><?= $fetch_lomba['alamat']?></td>
+										                        <td></td>
 										                    </tr>
 										                    <tr>
 										                        <td>No Hp</td>
-										                        <td><?= $fetch_lomba['no_hp']?></td>
+										                        <td></td>
 										                    </tr>
 										                     <tr>
 										                        <td>Foto </td>
