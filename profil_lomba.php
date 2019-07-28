@@ -1,5 +1,5 @@
 <?php
-include('header.php'); 
+include('header.php');
 if (empty($_SESSION['id_user'])) {
 	$id_user = 0;
 }
@@ -7,7 +7,7 @@ else{
 		$id_user = $_SESSION['id_user'];
 }
 ?>
-	
+
 	<!-- Home -->
 
 	<div class="home">
@@ -24,7 +24,7 @@ else{
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 
 	<!-- Courses -->
@@ -61,10 +61,12 @@ else{
 								                    </thead>
 								                    <tbody>
 								                        <?php
-								                        $sql = "select * from lomba order by id_lomba desc";
+								                        $sql = "SELECT lomba_detail.*,lomba.* FROM lomba_detail
+                        												LEFT JOIN lomba ON lomba_detail.id_lomba = lomba.id_lomba
+                        												WHERE lomba_detail.id_peserta = 13";
 								                        $query = mysqli_query($link, $sql);
 								                        while($data = mysqli_fetch_array($query)){
-								                        ?> 
+								                        ?>
 								                        <tr>
 								                            <td><?php echo $data['judul'];?></td>
 								                            <td><?php echo $data['tgl_daftar'];?></td>
@@ -72,13 +74,13 @@ else{
 								                            <td><?php echo $data['tgl_selesai'];?></td>
 								                            <td>
 								                                <div class="btn-group">
-								                                    <a href="#" class="btn btn-default btn-sm" alt="Edit"><i class="fa fa-eye"></i></a>
+								                                    <a href="hasil.php?id_lomba=<?=$data['id_lom'] ?>" class="btn btn-default btn-sm" alt="Edit"><i class="fa fa-eye"></i></a>
 								                                </div>
 								                            </td>
 								                        </tr>
 								                        <?php } ?>
 								                    </tbody>
-								                    
+
 								                </table>
 								            </div>
 								            <!-- /.box-body -->

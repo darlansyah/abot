@@ -1,5 +1,13 @@
-<?php include('header.php'); ?>
-	
+<?php include('header.php');
+
+if (empty($_SESSION['id_user'])) {
+	header('location:index.php');
+}
+
+$id_user = $_SESSION['id_user'];
+
+?>
+
 	<!-- Home -->
 
 	<div class="home">
@@ -16,7 +24,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 
 	<!-- Courses -->
@@ -29,79 +37,41 @@
 				<div class="col-lg-8">
 					<div class="courses_container">
 						<div class="row courses_row">
-							
-							<!-- Course -->
-							<div class="col-lg-6 course_col">
-								<div class="course">
-									<div class="course_image"><img src="images/course_2.jpg" alt=""></div>
-									<div class="course_body">
-										<h3 class="course_title"><a href="detail_lomba.php">Warna Warni Indonesia</a></h3>
-									</div>
-									<div class="course_footer">
-										<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-											<div class="course_info">
-												<i class="fa fa-users" aria-hidden="true"></i>
-												<span>150 Peserta</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 
 							<!-- Course -->
+							<?php
+							$sql = "SELECT lomba_detail.*,lomba.* FROM lomba_detail
+											LEFT JOIN lomba ON lomba_detail.id_lomba = lomba.id_lomba
+											WHERE lomba_detail.id_peserta = $id_user";
+							$query = mysqli_query($link, $sql);
+							while($data = mysqli_fetch_array($query)){
+							?>
 							<div class="col-lg-6 course_col">
 								<div class="course">
-									<div class="course_image"><img src="images/course_4.jpg" alt=""></div>
+									<div class="course_image">
+										<img src="admin/upload/<?= $data['foto'] ?>" alt="">
+									</div>
 									<div class="course_body">
-										<h3 class="course_title"><a href="detail_lomba.php">Momen Dalam Lensamu</a></h3>
+										<h3 class="course_title"><?= $data['judul'] ?></h3>
 									</div>
 									<div class="course_footer">
 										<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
 											<div class="course_info">
-												<i class="fa fa-users" aria-hidden="true"></i>
-												<span>150 Peserta</span>
+
+												<div class="course_title"> <a href="hasil.php?id_lomba=<?=$data['id_lomba'] ?>"> Hasil </a> </div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							 <?php } ?>
+
+
 
 							<!-- Course -->
-							<div class="col-lg-6 course_col">
-								<div class="course">
-									<div class="course_image"><img src="images/tangguh.jpeg" alt=""></div>
-									<div class="course_body">
-										<h3 class="course_title"><a href="detail_lomba.php">Tangguh</a></h3>
-									</div>
-									<div class="course_footer">
-										<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-											<div class="course_info">
-												<i class="fa fa-users" aria-hidden="true"></i>
-												<span>150 Peserta</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 
-							<!-- Course -->
-							<div class="col-lg-6 course_col">
-								<div class="course">
-									<div class="course_image"><img src="images/bti.jpg" alt=""></div>
-									<div class="course_body">
-										<h3 class="course_title"><a href="detail_lomba.php">Bineka Tunggal Ika</a></h3>
-									</div>
-									<div class="course_footer">
-										<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-											<div class="course_info">
-												<i class="fa fa-users" aria-hidden="true"></i>
-												<span>200 Peserta</span>
-											</div>
-											<div class="course_title"><a href="hasil.php">Lihat</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
+
+
 						</div>
 
 						<!--slide-->

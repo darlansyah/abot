@@ -1,13 +1,18 @@
 <?php
-include('header.php'); 
+include('header.php');
 if (empty($_SESSION['id_user'])) {
-	$id_user = 0;
+	header('location:index.php');
 }
-else{
-		$id_user = $_SESSION['id_user'];
-}
+
+$id_user = $_SESSION['id_user'];
+
+$query_lomba = "SELECT * FROM users where id_user = $id_user " ;
+
+$data = mysqli_query($link,$query_lomba);
+
+$user = mysqli_fetch_array($data);
 ?>
-	
+
 	<!-- Home -->
 
 	<div class="home">
@@ -24,7 +29,7 @@ else{
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 
 	<!-- Courses -->
@@ -52,27 +57,39 @@ else{
 										                <table id="example1" class="table table-bordered table-striped">
 										                    <tr>
 										                        <td width="200">Nama </td>
-										                        <td></td>
+										                        <td><?=$user['nama']; ?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Email </td>
-										                        <td></td>
+										                        <td><?=$user['email']; ?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Tanggal Lahir</td>
-										                        <td></td>
+										                        <td><?=$user['tanggal_lahir']; ?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Alamat</td>
-										                        <td></td>
+										                        <td><?=$user['alamat']; ?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>No Hp</td>
-										                        <td></td>
+										                        <td><?=$user['no_hp']; ?></td>
 										                    </tr>
 										                     <tr>
 										                        <td>Foto </td>
-										                        <td><img src="../upload/<?php echo $data_lomba['foto_profil'];?>" width="700"></td>
+																						<?php
+																						if(empty($user['foto_profil'])){
+																							?>
+																							<td>kosong </td>
+																							<?php
+																						}
+																						else{
+																							?>
+																							 <td><img src="../upload.<?= $user['foto_profil']; ?>" width="700"></td>
+																							<?php
+																						}
+																						 ?>
+
 										                    </tr>
 
 
