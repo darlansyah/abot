@@ -35,7 +35,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 			<div class="row">
 
 				<!-- Courses Main Content -->
-				<div class="col-lg-8">
+				<div class="col-lg-12">
 					<div class="courses_search_container">
 						<form action="#" id="courses_search_form" class="courses_search_form d-flex flex-row align-items-center justify-content-start">
 							<input type="search" class="courses_search_input" placeholder="Search Lomba" required="required">
@@ -51,7 +51,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 							while($data = mysqli_fetch_array($query)){
 							?>
 							<!-- Course -->
-							<div class="col-lg-6 course_col">
+							<div class="col-lg-4 course_col">
 									<div class="course">
 											<div class="course_image"><img width="350" src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
 											<div class="course_body">
@@ -63,8 +63,8 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 														<?php
 														if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran'] && ($data['id_lomba'] == $fetch_lomba['id_lomba'])){
 															?>
-																<div class="course_price ml-auto">Upload </div>
-																<?php
+															<div class="course_price ml-auto">Upload </div>
+															<?php
 														}
 														else {
 														?>
@@ -91,7 +91,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 							<div class="col">
 								<div class="pagination_container d-flex flex-row align-items-center justify-content-start">
 									<ul class="pagination_list">
-										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">1</a></li>
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
 										<li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
@@ -115,56 +115,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 				</div>
 
 				<!-- Courses Sidebar -->
-				<div class="col-lg-4">
-					<div class="sidebar">
-
-						<!-- Categories -->
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">Menu</div>
-							<div class="sidebar_categories">
-								<ul>
-									<li><a href="hasil.php">Hasil</a></li>
-									<li><a href="upload.php">Upload</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Latest Course -->
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">Latest Courses</div>
-							<div class="sidebar_latest">
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_1.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="course.html">How to Design a Logo a Beginners Course</a></div>
-										<div class="latest_price">Free</div>
-									</div>
-								</div>
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_2.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="course.html">Photography for Beginners Masterclass</a></div>
-										<div class="latest_price">$170</div>
-									</div>
-								</div>
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_3.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="course.html">The Secrets of Body Language</a></div>
-										<div class="latest_price">$220</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

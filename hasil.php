@@ -11,7 +11,7 @@ $str_data = "SELECT users.*, lomba_detail.*,tb_nilai.*, AVG(tb_nilai.nilai) AS '
             WHERE users.kategori = 'peserta' AND lomba_detail.id_lomba = $id_lomba
             GROUP BY tb_nilai.id_lombadetail_nilai
             ORDER BY AVG(tb_nilai.nilai) DESC";
-     echo $str_data;
+echo $str_data;
 
 
 
@@ -59,22 +59,20 @@ $judul_lomba = $judul['judul'];
 						       <div class="box">
 						            <!-- /.box-header -->
 						            <div class="box-body">
-						                <table class="table table-bordered table-striped">
+						                <table id="example1" class="table table-bordered table-striped">
 						                    <thead>
 						                        <tr>
-																				<th>No</th>
+													<th>No</th>
 						                            <th>Nama</th>
 						                            <th>Foto</th>
 						                            <th>Nilai</th>
 						                        </tr>
 						                    </thead>
 						                    <tbody>
-																	<?php
-																	$no = 1;
-																	while ($data = mysqli_fetch_assoc($query)) {
-
-
-																	 ?>
+											<?php
+											$no = 1;
+											while ($data = mysqli_fetch_assoc($query)) {
+											?>
 
 						                        <tr>
 																			 	<td><?= $no++; ?></td>
