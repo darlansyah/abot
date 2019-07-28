@@ -41,10 +41,10 @@
                             <form action="login_cek.php" method="post" >
                                 <div class="box-body">
                                     <div class="form-group">                            
-                                        <input type="email" class="form-control"  placeholder="Email" name="email">
+                                        <input type="email" class="form-control"  placeholder="Email" name="email" required="harus diisi">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" placeholder="Password" name="password" required="harus diisi">
                                     </div>
                                 </div>
                                 <div class="box-footer">

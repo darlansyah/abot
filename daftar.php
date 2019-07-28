@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Email</label> -->                              
-                                        <input type="email" class="form-control"  placeholder="Email" name="email" >
+                                        <input type="email" class="form-control"  placeholder="Email" name="email" required="harus diisi">
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Tanggal Lahir</label> -->
@@ -55,24 +55,24 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="Tanggal Lahir &nbsp; | &nbsp; contoh : 04-04-2000"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir">
+                                            <input type="text" class="form-control" placeholder="Tanggal Lahir &nbsp; | &nbsp; contoh : 04-04-2000"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" required="harus diisi">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Alamat</label> -->
-                                        <input type="text" class="form-control" placeholder="Alamat" name="alamat">
+                                        <input type="text" class="form-control" placeholder="Alamat" name="alamat" required="harus diisi">
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Handphone</label> -->
-                                        <input type="text" class="form-control"  placeholder="Handphone" name="handphone">
+                                        <input type="text" class="form-control"  placeholder="Handphone" name="handphone" required="harus diisi">
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Photo Profil</label> -->
-                                        <input type="file" class="form-control" placeholder="photo profil" name="foto">
+                                        <input type="file" class="form-control" placeholder="photo profil" name="foto" required="harus diisi">
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Password</label> -->
-                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" placeholder="Password" name="password" required="harus diisi">
                                     </div>
                                 </div>
                                 <div class="box-footer">
