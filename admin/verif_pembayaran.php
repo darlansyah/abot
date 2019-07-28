@@ -2,7 +2,8 @@
 
 include('header.php');
 
-    $id = $_GET['id']; // mengambil variable ID Lomba
+    $id = $_GET['id']; // id_user
+    $id_lomba = $_GET['id_lomba']; // id_lomba
     // query menampilkan data peserta sesuai dengan ID lomba
 
 
@@ -60,7 +61,7 @@ include('header.php');
                   <?php
                   if (!empty($data_peserta['gambar'])) {
                     ?>
-                    <a  class="btn btn-primary" href="verifikasi_bukti_pembayaran.php?id=<?= $data_peserta['id_lombadetail']?>&id_lomba=<?=$data_peserta['id_lomba'] ?>"> Setuju </a>
+                    <a  class="btn btn-primary" href="verifikasi_bukti_pembayaran.php?id=<?= $id?>&id_lomba=<?=$id_lomba?>"> Setuju </a>
                     <?php
                   }
                      ?>

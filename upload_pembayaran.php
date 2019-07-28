@@ -19,7 +19,7 @@ $fotobaru = date('dmYHis') . $foto;
 $path = "admin/upload/" . $fotobaru;
 
 if (in_array($eks_foto,$eks_wajib) === true) {
-  if ($ukuran_foto > 200000) {
+  if ($ukuran_foto > 20000) {
     if (move_uploaded_file($tmp, $path)) {
         $sql = "update lomba_detail set foto_bukti_pembayaran = '$fotobaru', id_status = 2 where id_lomba = '$id' and id_peserta = '$id_user'";
         $query = mysqli_query($link, $sql) or die(mysqli_error($link));

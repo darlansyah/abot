@@ -1,11 +1,14 @@
 <?php
 
 include('header.php');
+// include('koneksi.php');
 $id = $_GET['id']; // mengambil variable ID Lomba
 
 // membuat query untuk menampilkan detail sesuai dengan ID Lomba
 $query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id'");
 $data_lomba = mysqli_fetch_array($query_lomba);
+// var_dump($data_lomba);
+// die;
 
 // query menampilkan data juri sesuai dengan ID Lomba
 $query_juri = mysqli_query($link, "select * from juri_lomba a left join users b on a.id_juri=b.id_user where id_lomba = '$id'");
@@ -159,7 +162,7 @@ $query_peserta = mysqli_query($link, "select * from lomba_detail a "
                             <td><?php echo $data_peserta['nama_status'];?></td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="verif_pembayaran.php?id=<?php echo $data_peserta['id_user'];?>" class="btn btn-default btn-sm" alt="Edit"><i class="fa fa-check"></i></a>
+                                    <a href="verif_pembayaran.php?id=<?php echo $data_peserta['id_user'];?>&id_lomba=<?=$data_lomba['id_lomba'] ?>" class="btn btn-default btn-sm" alt="Edit"><i class="fa fa-check"></i></a>
                             </td>
                         </tr>
                         <?php }?>
