@@ -1,6 +1,7 @@
 <?php
 include('koneksi.php');
 
+$pe
 
 ?>
 <!doctype html>
@@ -47,6 +48,13 @@ include('koneksi.php');
 				  <span>Juri</span>
 				</label>
 				<button type="submit"></button>
+				<?php
+				if (isset($_GET['pesan'])) {
+					?>
+					<p style="color:red;text-align:center"> <?= $_GET['pesan'] ?> </p>
+					<?php
+				}
+				 ?>
 			<form>
 		</div>
 
