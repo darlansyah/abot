@@ -26,10 +26,9 @@ if ($num > 0) {
 
     }
     if ($data['kategori'] == 'admin') {
-      // $_SESSION['id_user'] = $data['id_user'];
-      // $_SESSION['nama'] = $data['nama'];
-      // header('location:admin/')
-      echo "admin";
+      $_SESSION['id_user'] = $data['id_user'];
+      $_SESSION['nama'] = $data['nama'];
+      header('location:../admin/');
     }
 
 

@@ -6,4 +6,8 @@ if(!$link) {
     echo "Tidak bisa konek dengan database";
 }
 
+
+// function flash(){
+// return "Username dan Password Salah!";
+// }
 ?>
