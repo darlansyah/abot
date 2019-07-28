@@ -34,7 +34,7 @@ if ($num > 0) {
 
     // header("location:profil.php");
 } else {
-  echo "username or password salah";
-    // header("location:login.php?pesan=Username atau password salah!");
+  // echo "username or password salah";
+    header("location:index.php?pesan=Username atau password salah!");
 }
 ?>
