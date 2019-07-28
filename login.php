@@ -35,17 +35,15 @@
                         <div class="box box-info">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Login</h3>
-                            </div>
+                            </div><br/>
                             <!-- /.box-header -->
                             <!-- form start -->
                             <form action="login_cek.php" method="post" >
                                 <div class="box-body">
-                                    <div class="form-group">
-                                        <label>Email</label>                              
+                                    <div class="form-group">                            
                                         <input type="email" class="form-control"  placeholder="Email" name="email">
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
                                         <input type="password" class="form-control" placeholder="Password" name="password">
                                     </div>
                                 </div>

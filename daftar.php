@@ -34,44 +34,44 @@
                         <!-- Horizontal Form -->
                         <div class="box box-info">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Register Member</h3>
-                            </div>
+                                <h2 class="box-title">Register Member</h2>
+                            </div><br/>
                             <!-- /.box-header -->
                             <!-- form start -->
                             <form action="daftar_simpan.php" method="post" enctype="multipart/form-data">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" class="form-control" placeholder="Nama" name="nama">
+                                        <!-- <label>Nama</label> -->
+                                        <input type="text" class="form-control" placeholder="Nama" name="nama" required="harus diisi">
 
                                     </div>
                                     <div class="form-group">
-                                        <label>Email</label>                              
-                                        <input type="email" class="form-control"  placeholder="Email" name="email">
+                                        <!-- <label>Email</label> -->                              
+                                        <input type="email" class="form-control"  placeholder="Email" name="email" >
                                     </div>
                                     <div class="form-group">
-                                        <label>Tanggal Lahir</label>
+                                        <!-- <label>Tanggal Lahir</label> -->
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir"> contoh : 04-04-2000
+                                            <input type="text" class="form-control" placeholder="Tanggal Lahir &nbsp; | &nbsp; contoh : 04-04-2000"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Alamat</label>
+                                        <!-- <label>Alamat</label> -->
                                         <input type="text" class="form-control"  placeholder="Alamat" name="alamat">
                                     </div>
                                     <div class="form-group">
-                                        <label>Handphone</label>
+                                        <!-- <label>Handphone</label> -->
                                         <input type="text" class="form-control"  placeholder="Handphone" name="handphone">
                                     </div>
                                     <div class="form-group">
-                                        <label>Photo Profil</label>
-                                        <input type="file" class="form-control" name="foto">
+                                        <!-- <label>Photo Profil</label> -->
+                                        <input type="file" class="form-control" placeholder="photo profil" name="foto">
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <!-- <label>Password</label> -->
                                         <input type="password" class="form-control" placeholder="Password" name="password">
                                     </div>
                                 </div>
