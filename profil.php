@@ -1,5 +1,4 @@
 <?php
-
 include('header.php');
 if (empty($_SESSION['id_user'])) {
 	$id_user = 0;
@@ -7,6 +6,15 @@ if (empty($_SESSION['id_user'])) {
 else{
 		$id_user = $_SESSION['id_user'];
 }
+
+
+$id_user = $_SESSION['id_user'];
+
+$query_lomba = "SELECT * FROM users where id_user = $id_user " ;
+
+$data_lomba = mysqli_query($link,$query_lomba);
+
+$fetch_lomba = mysqli_fetch_array($data_lomba);
 ?>
 
 	<!-- Home -->
@@ -53,23 +61,23 @@ else{
 										                <table id="example1" class="table table-bordered table-striped">
 										                    <tr>
 										                        <td width="200">Nama </td>
-										                        <td></td>
+										                        <td><?= $fetch_lomba['nama']?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Email </td>
-										                        <td></td>
+										                        <td><?= $fetch_lomba['email']?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Tanggal Lahir</td>
-										                        <td></td>
+										                        <td><?= $fetch_lomba['tanggal_lahir']?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>Alamat</td>
-										                        <td></td>
+										                        <td><?= $fetch_lomba['alamat']?></td>
 										                    </tr>
 										                    <tr>
 										                        <td>No Hp</td>
-										                        <td></td>
+										                        <td><?= $fetch_lomba['no_hp']?></td>
 										                    </tr>
 										                     <tr>
 										                        <td>Foto </td>
