@@ -24,9 +24,8 @@
 									</div>
 									<div class="footer_social">
 										<ul>
-											<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+											<li><a href="https://web.facebook.com/kfijogja/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+											<li><a href="https://www.instagram.com/kfi_jogja/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 										</ul>
 									</div>
 								</div>

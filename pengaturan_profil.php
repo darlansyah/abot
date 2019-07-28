@@ -1,11 +1,11 @@
-<?php include('header.php');
-$id_user = $_SESSION['id_user'];
-$query_lomba = "SELECT * FROM users where id_user = $id_user " ;
-
-$data_lomba = mysqli_query($link,$query_lomba);
-
-$fetch_lomba = mysqli_fetch_array($data_lomba);
-
+<?php
+include('header.php');
+if (empty($_SESSION['id_user'])) {
+	$id_user = 0;
+}
+else{
+		$id_user = $_SESSION['id_user'];
+}
 ?>
 
 	<!-- Home -->
@@ -39,58 +39,57 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 						<div class="row courses_row">
 							<section class="content container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <!-- Horizontal Form -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Pengaturan</h3>
+                        <h2 class="box-title">Pengaturan</h2><br/><br/>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form method="post" action="user_simpan.php">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label>Nama</label>
-                                <input type="text" class="form-control" placeholder="Nama" name="nama" value="<?= $fetch_lomba['nama'] ?>">
+                    <form action="profil_update.php" method="post" enctype="multipart/form-data">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <!-- <label>Nama</label> -->
+                                        <input type="text" class="form-control" placeholder="Nama" name="nama" required="harus diisi">
 
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control"  placeholder="Email" name="email" value="<?= $fetch_lomba['email'] ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal Lahir</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" value="<?= $fetch_lomba['tanggal_lahir'] ?>">
+                                    <div class="form-group">
+                                        <!-- <label>Email</label> -->
+                                        <input type="email" class="form-control"  placeholder="Email" name="email" >
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label>Tanggal Lahir</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Tanggal Lahir &nbsp; | &nbsp; contoh : 04-04-2000"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label>Alamat</label> -->
+                                        <input type="text" class="form-control"  placeholder="Alamat" name="alamat">
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label>Handphone</label> -->
+                                        <input type="text" class="form-control"  placeholder="Handphone" name="handphone">
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label>Photo Profil</label> -->
+                                        <input type="file" class="form-control" placeholder="photo profil" name="foto">
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label>Password</label> -->
+                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Alamat</label>
-                                <input type="text" class="form-control"  placeholder="Alamat" name="alamat" value="<?= $fetch_lomba['alamat'] ?>" >
-                            </div>
-                            <div class="form-group">
-                                <label>Handphone</label>
-                                <input type="text" class="form-control"  placeholder="Handphone" name="handphone" value="<?= $fetch_lomba['no_hp'] ?>">
-                            </div>
-  							<div class="form-group">
-                                <label>Photo Profil</label>
-                                <input type="text" class="form-control"  placeholder="Photo Profil" name="foto">
-                            </div>
-                            <div class="form-group">
-                                <label>Password Baru</label>
-                                <input type="text" class="form-control" placeholder="Password" name="password">
-                            </div>
-
-                        </div>
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
-                        <!-- /.box-footer -->
-	                    </form>
-	                </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                                <!-- /.box-footer -->
+                            </form>
+	            </div>
 	            </div>
 	        </div>
 	    </section>
@@ -107,15 +106,14 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 							<div class="box-body box-profile">
 					              <img class="profile-user-img img-responsive img-circle" src="images/am.jpg" alt="User profile picture">
 
-					              <h3 class="profile-username text-center">AM Ibrahim</h3>
-
-					              <p class="text-muted text-center">Landscaper</p>
+					              <h3 class="profile-username text-center"><?php echo   $_SESSION['nama'] ?></h3>
 					         </div>
 							<div class="sidebar_categories">
 								<ul>
 									<li><a href="profil.php">Profil</a></li>
 									<li><a href="my_lomba.php">Lomba</a></li>
 									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
+									<li><a href="logout.php">Logout</a></li>
 								</ul>
 							</div>
 						</div>
