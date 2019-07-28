@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Alamat</label> -->
-                                        <input type="text" class="form-control"  placeholder="Alamat" name="alamat">
+                                        <input type="text" class="form-control" class="fa fa-eye"  placeholder="Alamat" name="alamat">
                                     </div>
                                     <div class="form-group">
                                         <!-- <label>Handphone</label> -->
