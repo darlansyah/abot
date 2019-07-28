@@ -1,4 +1,9 @@
-<?php include('koneksi.php');?>
+<?php include('koneksi.php');
+if (!isset($_SESSION['id_user'])) {
+        header("location:../login/");
+        exit;
+}
+?>
 <html>
 <head>
   <meta charset="utf-8">
@@ -13,7 +18,7 @@
   <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  
+
     <!-- daterange picker -->
   <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap datepicker -->
@@ -26,9 +31,9 @@
   <link rel="stylesheet" href="plugins/timepicker/bootstrap-timepicker.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
-  
+
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  
+
     <!-- daterange picker -->
   <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap datepicker -->
@@ -90,7 +95,7 @@ desired effect
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
-      
+
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
