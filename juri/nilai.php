@@ -26,24 +26,7 @@ else{
   $nilai = $data_lomba_detail['nilai'];
 }
 
-
-
-// $id_juri = 4; // arumsi
-//
-//
-// $juri_lomba  = "SELECT id_jurilomba FROM juri_lomba WHERE id_lomba = $id AND id_juri = $id_juri";
-// $query_jl = mysqli_query($link,$juri_lomba);
-// $id_jurilomba_f = mysqli_fetch_array($query_jl);
-// $id_jurilomba = $id_jurilomba_f['id_jurilomba'];
-// var_dump($id_jurilomba);
-// die;
-
-
 ?>
-
-
-
-
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

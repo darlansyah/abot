@@ -79,13 +79,6 @@ else{
                                           }
 
                                          ?>
-
-                                        <!-- <div class="top_bar_login ml-auto">
-                                            <div class="login_button">
-                                              <a href="daftar.php"> Register </a>
-                                              or
-                                              <a href="login.php"> Login</a></div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +199,7 @@ else{
 						<div class="course_title"><?php echo $data['judul'];?></div></br>
 
 						<!-- Course Image -->
-						<div class="course_image"><img src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
+						<div class="course_image"><img  width ="100%" height="100%" src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
 
 						<!-- Course Tabs -->
 						<div class="course_tabs_container">

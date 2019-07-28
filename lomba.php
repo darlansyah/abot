@@ -36,12 +36,14 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 
 				<!-- Courses Main Content -->
 				<div class="col-lg-12">
-					<div class="courses_search_container">
-						<form action="#" id="courses_search_form" class="courses_search_form d-flex flex-row align-items-center justify-content-start">
-							<input type="search" class="courses_search_input" placeholder="Search Lomba" required="required">
-							<button action="submit" class="courses_search_button ml-auto">search now</button>
-						</form>
-					</div>
+					<div class="row">
+			            <div class="col">
+			                <div class="section_title_container text-center">
+			                    <h2 class="section_title">KFI REG D.I.Yogyakarta</h2>
+			                    <div class="section_subtitle"><p>silahkan pilih lomba yang tersedia</p></div>
+			                </div>
+			            </div>
+			        </div>
 					<div class="courses_container">
 						<div class="row courses_row">
 
@@ -51,7 +53,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 							while($data = mysqli_fetch_array($query)){
 							?>
 							<!-- Course -->
-							<div class="col-lg-4 course_col">
+							<div class="col-lg-3 course_col">
 									<div class="course">
 											<div class="course_image"><img width="350" src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
 											<div class="course_body">
