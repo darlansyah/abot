@@ -102,20 +102,18 @@ else{
 					<div class="sidebar">
 
 						<!-- Categories -->
-						<div class="sidebar_section">
-							<div class="box-body box-profile">
-					              <img class="profile-user-img img-responsive img-circle" src="images/am.jpg" alt="User profile picture">
-
-					              <h3 class="profile-username text-center"><?php echo   $_SESSION['nama'] ?></h3>
-
-					              <p class="text-muted text-center">Landscaper</p>
-					         </div>
+						<div class="sidebar_section" >
+							<div align="center" class="box-body box-profile">
+					            <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?php echo $user['foto_profil'];?>" width="50%" alt=""><br/><br/>
+					            <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
+					            <p class="text-muted text-center"><?= $user['tanggal_lahir'] ?></p>
+					        </div>
 							<div class="sidebar_categories">
 								<ul>
 									<li><a href="profil.php">Profil</a></li>
 									<li><a href="my_lomba.php">Lomba</a></li>
 									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
-									<li><a href="logout.php">Lomba</a></li>
+									<li><a href="logout.php">Logout</a></li>
 								</ul>
 							</div>
 						</div>

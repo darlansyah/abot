@@ -1,4 +1,4 @@
-
+<div class="section_background parallax-window" data-parallax="scroll" data-image-src="../images/courses_background.jpg" data-speed="0.8"></div>
 <!-- Main Footer -->
 <footer class="main-footer">
     <!-- To the right -->

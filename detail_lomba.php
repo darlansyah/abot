@@ -6,11 +6,7 @@ else{
 		$id_user = $_SESSION['id_user'];
 }
 
-
-
  ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -239,7 +235,7 @@ else{
 
 									<!-- Feature -->
 	                                <div class="feature d-flex flex-row align-items-center justify-content-start">
-	                                    <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Tanggal Pendaftaran:</span></div>
+	                                    <div class="feature_title"><i class="fa fa-calender" aria-hidden="true"></i><span>Tanggal Pendaftaran:</span></div>
 	                                    <div class="feature_text ml-auto"><?php echo $data['tgl_daftar']; ?></div>
 	                                </div>
 

@@ -5,9 +5,9 @@ include('koneksi.php');
 $id = $_POST['id'];
 
 $judul = $_POST['judul'];
-$tanggal_daftar = date("Y-m-d", strtotime($_POST['tanggal_daftar']));
-$tanggal_mulai = date("Y-m-d", strtotime($_POST['tanggal_mulai']));
-$tanggal_selesai = date("Y-m-d", strtotime($_POST['tanggal_selesai']));
+$tanggal_daftar = date('Y-m-d', strtotime($_POST['tanggal_daftar']));
+$tanggal_mulai = date('Y-m-d', strtotime($_POST['tanggal_mulai']));
+$tanggal_selesai = date('Y-m-d', strtotime($_POST['tanggal_selesai']));
 $biaya_daftar = $_POST['biaya_daftar'];
 $deskripsi = $_POST['deskripsi'];
 $status = $_POST['status_lomba'];

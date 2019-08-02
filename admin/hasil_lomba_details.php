@@ -1,11 +1,23 @@
 <?php 
 include('header.php'); 
 
+
 $id = $_GET['id']; // mengambil variable ID Lomba
 
 // membuat query untuk menampilkan detail sesuai dengan ID Lomba
 $query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id'");
 $data_lomba = mysqli_fetch_array($query_lomba);
+
+// Query untuk menampilkan nilai rata-rata
+$str_data = "SELECT users.*, lomba_detail.*,tb_nilai.*, AVG(tb_nilai.nilai) AS 'rata-rata' FROM users
+            LEFT JOIN lomba_detail ON users.id_user = lomba_detail.id_peserta
+            LEFT JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai
+            WHERE users.kategori = 'peserta' AND lomba_detail.id_lomba = $id
+            GROUP BY tb_nilai.id_lombadetail_nilai
+            ORDER BY AVG(tb_nilai.nilai) DESC";
+// echo $str_data;
+
+$query = mysqli_query($link,$str_data);
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -65,17 +77,26 @@ $data_lomba = mysqli_fetch_array($query_lomba);
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>Foto</th>
                             <th>Nilai</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $no = 1;
+                            while ($data = mysqli_fetch_assoc($query)) {
+                            ?>
                         <tr>
-                            <td>Fikri</td>   
-                            <td>http ://link.com</td>
-                            <td>00.00</td>
+                            <td><?= $no++; ?></td>
+                            <td><?=$data['nama']; ?></td>   
+                            <td><img width="80" src="upload/<?=$data['foto_lomba'];?>" alt="img"> </td>
+                            <td><?=$data['rata-rata']; ?></td>
                         </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

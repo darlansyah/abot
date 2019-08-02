@@ -41,47 +41,45 @@ $user = mysqli_fetch_array($data);
 				<!-- Courses Main Content -->
 				<div class="col-lg-8">
 					<div class="courses_container">
-						<div class="row courses_row">
+					<div class="row courses_row">
 					<section class="content container-fluid">
 			        <div class="row">
 			            <div class="col-md-12">
 			                <!-- Horizontal Form -->
 			                <div class="box box-info">
 			                    <div class="box-header with-border">
-			                        <h3 class="box-title"><?php echo   $_SESSION['nama'] ?></h3><br/>
+			                        <h2 align="center" class="box-title">Data User</h2><br/>
 										<section class="content container-fluid">
 
-										        <div class="box">
-										            <!-- /.box-header -->
-										            <div class="box-body">
-										                <table id="example1" class="table table-bordered table-striped">
-										                    <tr>
-										                        <td width="200">Nama </td>
-										                        <td><?=$user['nama']; ?></td>
-										                    </tr>
-										                    <tr>
-										                        <td>Email </td>
-										                        <td><?=$user['email']; ?></td>
-										                    </tr>
-										                    <tr>
-										                        <td>Tanggal Lahir</td>
-										                        <td><?=$user['tanggal_lahir']; ?></td>
-										                    </tr>
-										                    <tr>
-										                        <td>Alamat</td>
-										                        <td><?=$user['alamat']; ?></td>
-										                    </tr>
-										                    <tr>
-										                        <td>No Hp</td>
-										                        <td><?=$user['no_hp']; ?></td>
-										                    </tr>
+										    <div class="box">
+										        <div class="box-body">
+										            <table id="example1" class="table table-bordered table-striped">
+										                <tr>
+										                    <td width="200">Nama </td>
+										                    <td><?=$user['nama']; ?></td>
+										                </tr>
+										                <tr>
+										                	<td>Email </td>
+										                    <td><?=$user['email']; ?></td>
+										                </tr>
+										                <tr>
+										                    <td>Tanggal Lahir</td>
+										                    <td><?=$user['tanggal_lahir']; ?></td>
+										                </tr>
+										                <tr>
+										                    <td>Alamat</td>
+										                    <td><?=$user['alamat']; ?></td>
+										                </tr>
+										                <tr>
+										                    <td>No Hp</td>
+										                    <td><?=$user['no_hp']; ?></td>
+										                </tr>
 
 
 
-										                </table>
-										            </div>
-										            <!-- /.box-body -->
+										            </table>
 										        </div>
+										    </div>
 
 										</section>
 			                    </div>
@@ -90,8 +88,8 @@ $user = mysqli_fetch_array($data);
 				            </div>
 				        </div>
 				    </section>
-						</div>
 					</div>
+				</div>
 				</div>
 
 				<!-- Courses Sidebar -->
@@ -99,14 +97,12 @@ $user = mysqli_fetch_array($data);
 					<div class="sidebar">
 
 						<!-- Categories -->
-						<div class="sidebar_section">
-							<div class="box-body box-profile">
-					              <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?php echo $user['foto_profil'];?>" width="100" alt="">
-
-					              <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
-
-					              <p class="text-muted text-center">Landscaper</p>
-					         </div>
+						<div class="sidebar_section" >
+							<div  align="center" class="box-body box-profile">
+					            <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?php echo $user['foto_profil'];?>" width="50%" alt=""><br/><br/>
+					            <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
+					            <p class="text-muted text-center"><?= $user['tanggal_lahir'] ?></p>
+					        </div>
 							<div class="sidebar_categories">
 								<ul>
 									<li><a href="profil.php">Profil</a></li>

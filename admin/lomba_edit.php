@@ -59,7 +59,7 @@ if($data['status_lomba'] == 'Posting') {
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_daftar" value="<?php echo date("d-m-Y", strtotime($data['tgl_daftar']));?>">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_daftar" value="<?php echo date('Y-m-d', strtotime($data['tgl_daftar']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -68,7 +68,7 @@ if($data['status_lomba'] == 'Posting') {
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_mulai" value="<?php echo date("d-m-Y", strtotime($data['tgl_mulai']));?>">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_mulai" value="<?php echo date('Y-m-d', strtotime($data['tgl_mulai']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -77,7 +77,7 @@ if($data['status_lomba'] == 'Posting') {
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_selesai" value="<?php echo date("d-m-Y", strtotime($data['tgl_selesai']));?>">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_selesai" value="<?php echo date('Y-m-d', strtotime($data['tgl_selesai']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">

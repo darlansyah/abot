@@ -39,10 +39,10 @@ if ($aksi == "simpan") {
   $queri_n = mysqli_query($link,$str_nilai);
 
   if ($queri_n) {
-    echo "berhasil simpan";
+    header('location:penilaian_details.php?id='.$id_lomba);
   }
   else{
-    echo "gagal simpan";
+    header('location:nilai.php?id='.$id_lomba);
   }
 }
 
@@ -55,10 +55,10 @@ if($aksi == "update"){
   $queri_n = mysqli_query($link,$str_nilai);
 
   if ($queri_n) {
-    echo "berhasil update";
+    header('location:penilaian_details.php?id='.$id_lomba);
   }
   else{
-    echo "gagal update";
+    echo header('location:nilai.php?id='.$id_lomba);
   }
 
 }

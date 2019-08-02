@@ -56,44 +56,36 @@ $user = mysqli_fetch_array($data);
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form action="profil_update.php" method="post" enctype="multipart/form-data">
-											<input type="hidden" name="id" value="<?=$id_user ?>">
-											<input type="hidden" name="foto_lama" value="<?=$user['foto_profil'] ?>">
-															  <div class="box-body">
-                                    <div class="form-group">
-                                        <!-- <label>Nama</label> -->
-                                        <input type="text" class="form-control" placeholder="Nama" name="nama" required="harus diisi" value="<?=$user['nama'] ?>">
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <!-- <label>Tanggal Lahir</label> -->
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Tanggal Lahir &nbsp; | &nbsp; contoh : 04-04-2000"
-																						data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" required="harus diisi" value="<?=$user['tanggal_lahir'] ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <!-- <label>Alamat</label> -->
-                                        <input type="text" class="form-control"  placeholder="Alamat" name="alamat" required="harus diisi" value="<?=$user['alamat'] ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <!-- <label>Handphone</label> -->
-                                        <input type="text" class="form-control"  placeholder="Handphone" name="handphone" required="harus diisi" value="<?=$user['no_hp'] ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <!-- <label>Photo Profil</label> -->
-                                        <input type="file" class="form-control" placeholder="photo profil" name="foto">
-                                    </div>
-
+						<input type="hidden" name="id" value="<?=$id_user ?>">
+						<input type="hidden" name="foto_lama" value="<?=$user['foto_profil'] ?>">
+						<div class="box-body">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nama" name="nama" required="harus diisi" value="<?=$user['nama'] ?>">
+							</div>
+							<div class="form-group">
+                            <div class="input-group">
+                            	<div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            	</div>
+                            	<input type="text" class="form-control" placeholder="Tanggal Lahir &nbsp; | &nbsp; contoh : 04-04-2000" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" required="harus diisi" value="<?=$user['tanggal_lahir'] ?>">
+                            </div>
+                            </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="Alamat" name="alamat" required="harus diisi" value="<?=$user['alamat'] ?>">
                                 </div>
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="Handphone" name="handphone" required="harus diisi" value="<?=$user['no_hp'] ?>">
                                 </div>
+                                <div class="form-group">
+                                    <input type="file" class="form-control" placeholder="photo profil" name="foto">
+                                </div>
+
+                        </div>
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
                                 <!-- /.box-footer -->
-                            </form>
+                </form>
 	            </div>
 	            </div>
 	        </div>
@@ -107,12 +99,12 @@ $user = mysqli_fetch_array($data);
 					<div class="sidebar">
 
 						<!-- Categories -->
-						<div class="sidebar_section">
-							<div class="box-body box-profile">
-					              <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?=$user['foto_profil'] ?>" width="100" alt="User profile picture">
-
-					              <h3 class="profile-username text-center"><?php echo   $_SESSION['nama'] ?></h3>
-					         </div>
+						<div class="sidebar_section" >
+							<div align="center" class="box-body box-profile">
+					            <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?php echo $user['foto_profil'];?>" width="50%" alt=""><br/><br/>
+					            <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
+					            <p class="text-muted text-center"><?= $user['tanggal_lahir'] ?></p>
+					        </div>
 							<div class="sidebar_categories">
 								<ul>
 									<li><a href="profil.php">Profil</a></li>

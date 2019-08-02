@@ -30,7 +30,8 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "select * from lomba order by id_lomba desc";
+                        $tgl_selesai = date('Y-m-d'); //mengacu pada tanggal saat ini
+                        $sql = "SELECT * FROM lomba WHERE id_lomba AND tgl_selesai < '".$tgl_selesai."'"; 
                         $query = mysqli_query($link, $sql);
                         while($data = mysqli_fetch_array($query)){
                         ?> 

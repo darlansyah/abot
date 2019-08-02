@@ -3,7 +3,7 @@ include('koneksi.php');
 
 $nama = $_POST['nama'];
 $email = $_POST['email'];
-$tanggal_lahir = date("Y-m-d", strtotime($_POST['tanggal_lahir']));
+$tanggal_lahir = date('Y-m-d', strtotime($_POST['tanggal_lahir']));
 $alamat = $_POST['alamat'];
 $handphone = $_POST['handphone'];
 $password = $_POST['password'];

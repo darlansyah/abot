@@ -10,23 +10,9 @@ $data_lomba = mysqli_query($link,$query_lomba);
 
 $fetch_lomba = mysqli_fetch_array($data_lomba);
 
-// if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran']){
-//   echo 'UPLOAD';
-// }
-// else {
-//   echo "HARGA";
-// }
-
-//var_dump($fetch_lomba);
-// die;
-
-
 ?>
 
-
 <!--home-->
-
-
 
 <!--List Lomba-->
 <br/><br/><br/><br/><br/>
@@ -59,29 +45,26 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
                         <h3 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
                     </div>
                     <div class="course_footer">
-                        <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
+                      <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
 
                           <?php
                           if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran'] && ($data['id_lomba'] == $fetch_lomba['id_lomba'])){
                             ?>
-                              <div class="course_price ml-auto">Upload </div>
+                              <a class="course_price ml-auto" href="status_peserta.php?id=<?php echo $data['id_lomba'];?>">Upload</a>
                               <?php
                           }
                           else {
                           ?>
-
-                                                      <div class="course_info">
-                                                          <i class="fa fa-dollar" aria-hidden="true"></i>
-                                                          <span>Biaya Pendaftaran  :</span>
-                                                      </div>
-                                                      <div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
+                          <div class="course_info">
+                            <i aria-hidden="true"></i>
+                            <span>Biaya Pendaftaran  :</span>
+                          </div>
+                          <div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
                           <?php
                           }
                            ?>
-
-
-                        </div>
-                    </div>
+                      </div>
+                      </div>
                 </div>
             </div>
             <?php } ?>

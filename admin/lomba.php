@@ -29,7 +29,7 @@
                             <th>Tanggal Daftar</th>
                             <th>Tanggal Mulai</th>
                             <th>Tanggal Selesai</th>
-                            <th>HTM</th>
+                            <th>Biaya Daftar</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

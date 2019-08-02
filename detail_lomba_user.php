@@ -276,40 +276,29 @@ $ket_upload = "Pendaftaran Anda Belum Diverifikasi";
 
                                 }else{
 
-                                                                  if (empty($fetch_karya['foto_lomba'] )) {
-                                                                    ?>
-                                                                    <form method="post" action="upload_karya.php" enctype="multipart/form-data">
-                                                                        <div class="box-body">
-                                                                            <div class="form-group">
-                                                                                <input type="file" class="form-control" name="foto" required>
-                                                                                <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="box-footer">
-                                                                            <button type="submit" class="btn btn-primary">Upload Foto Karya</button>
-                                                                        </div>
-                                                                        <!-- /.box-footer -->
-                                                                    </form>
-                                                                    <?php
-                                                                  }
-                                                                  else{
-                                                                    ?>
-                                                                    <a href="hasil.php?id_lomba=<?= $id  ?>" class="btn btn-primary"> Lihat Hasil  </a>
-
-                                                                    <?php
-                                                                  }
+                                if (empty($fetch_karya['foto_lomba'] )) {
+                                ?>
+                                <form method="post" action="upload_karya.php" enctype="multipart/form-data">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="foto" required>
+                                        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">Upload Foto Karya</button>
+                                </div>
+                                <!-- /.box-footer -->
+                                </form>
+                                <?php
+                                 }
+                                else{
+                                ?>
+                                <a href="hasil.php?id_lomba=<?= $id  ?>" class="btn btn-primary"> Lihat Hasil  </a>
+                                <?php
                                 }
-
-
-
-
-
-                                 ?>
-
-
-
-
-
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

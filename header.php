@@ -18,6 +18,8 @@ include('admin/koneksi.php');
         <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
         <link rel="stylesheet" type="text/css" href="styles/courses.css">
         <link rel="stylesheet" type="text/css" href="styles/courses_responsive.css">
+        <link rel="stylesheet" type="text/css" href="styles/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/datatables.net/css/dataTables.bootstrap.min.css">
     </head>
     <body>
 
@@ -52,6 +54,7 @@ include('admin/koneksi.php');
                                                 <li>
                                                     <div><a href="daftar.php"> Register </a></div>
                                                 </li>
+                                                <li>|</li>
                                                 <li>
                                                     <div><a href="login.php"> Login</a></div>
                                                 </li>
@@ -69,13 +72,6 @@ include('admin/koneksi.php');
                                           }
 
                                          ?>
-
-                                        <!-- <div class="top_bar_login ml-auto">
-                                            <div class="login_button">
-                                              <a href="daftar.php"> Register </a>
-                                              or
-                                              <a href="login.php"> Login</a></div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>

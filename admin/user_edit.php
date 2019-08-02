@@ -56,7 +56,7 @@ if($data['kategori'] == 'juri') {
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" value="<?php echo date("d-m-Y", strtotime($data['tanggal_lahir']));?>">
+                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_lahir" value="<?php echo date('Y-m-d', strtotime($data['tgl_lahir']));?>">
                                 </div>
                             </div>
                             <div class="form-group">

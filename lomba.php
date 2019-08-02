@@ -48,41 +48,40 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 						<div class="row courses_row">
 
 							<?php
-							$sql = "select * from lomba where status_lomba = 'Posting'";
+							$now = date('Y-m-d');
+							$sql = "SELECT * FROM lomba WHERE status_lomba = 'Posting' AND tgl_selesai > '".$now."'";
 							$query = mysqli_query($link, $sql);
 							while($data = mysqli_fetch_array($query)){
 							?>
 							<!-- Course -->
 							<div class="col-lg-3 course_col">
-									<div class="course">
-											<div class="course_image"><img width="350" src="admin/upload/<?php echo $data['foto'];?>" alt=""></div>
-											<div class="course_body">
-													<h3 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h3>
+								<div class="course">
+									<div class="course_image"><img width="350" height="150" src="admin/upload/<?php echo $data['foto'];?>" alt="">
+									</div>
+									<div class="course_body">
+									<h5 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h5>
+									</div>
+										<div class="course_footer">
+											<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
+												<?php
+												if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran'] && ($data['id_lomba'] == $fetch_lomba['id_lomba'])){
+												?>
+												<div class="course_price ml-auto">Upload </div>
+												<?php
+												}
+												else {
+												?>
+												<div class="course_info">
+													<i aria-hidden="true"></i>
+													<span>Biaya Pendaftaran  :</span>
+												</div>
+												<div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?>
+												</div>
+												<?php
+												}
+												?>
 											</div>
-											<div class="course_footer">
-													<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-
-														<?php
-														if($fetch_lomba['id_peserta'] && $fetch_lomba['foto_bukti_pembayaran'] && ($data['id_lomba'] == $fetch_lomba['id_lomba'])){
-															?>
-															<div class="course_price ml-auto">Upload </div>
-															<?php
-														}
-														else {
-														?>
-
-														<div class="course_info">
-														<i class="fa fa-dollar" aria-hidden="true"></i>
-														<span>Biaya Pendaftaran  :</span>
-														</div>
-																			<div class="course_price ml-auto">Rp. <?php echo $data['biaya_lomba'];?></div>
-														<?php
-														}
-														 ?>
-
-
-													</div>
-											</div>
+										</div>
 									</div>
 							</div>
 							<?php } ?>

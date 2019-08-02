@@ -6,8 +6,6 @@ if (empty($_SESSION['id_user'])) {
 
 $id_user = $_SESSION['id_user'];
 
-
-
 $query_lomba = "SELECT * FROM users where id_user = $id_user " ;
 
 $data = mysqli_query($link,$query_lomba);
@@ -44,6 +42,7 @@ $user = mysqli_fetch_array($data);
 				<!-- Courses Main Content -->
 				<div class="col-lg-8">
 					<div class="courses_container">
+						<h2 align="center" class="box-title">Lomba Saya</h2><br/>
 						<div class="row courses_row">
 
 							<!-- Course -->
@@ -54,19 +53,19 @@ $user = mysqli_fetch_array($data);
 							$query = mysqli_query($link, $sql);
 							while($data = mysqli_fetch_array($query)){
 							?>
-							<div class="col-lg-6 course_col">
+							<div class="col-lg-4 course_col">
 								<div class="course">
 									<div class="course_image">
 										<img src="admin/upload/<?= $data['foto'] ?>" alt="">
 									</div>
 									<div class="course_body">
-										<h3 class="course_title"><?= $data['judul'] ?></h3>
+										<h5 class="course_title"><?= $data['judul'] ?></h5>
 									</div>
 									<div class="course_footer">
 										<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
 											<div class="course_info">
-
-												<div class="course_title"> <a href="hasil.php?id_lomba=<?=$data['id_lomba'] ?>"> Hasil </a> </div>
+												<div class="course_price ml-auto"><a href="hasil.php?id_lomba=<?=$data['id_lomba'] ?>"> Hasil </a> 
+												</div>
 											</div>
 										</div>
 									</div>
@@ -115,14 +114,12 @@ $user = mysqli_fetch_array($data);
 					<div class="sidebar">
 
 						<!-- Categories -->
-						<div class="sidebar_section">
-							<div class="box-body box-profile">
-					              <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?= $user['foto_profil'] ?>" width="100" alt="User profile picture">
-
-					              <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
-
-					              <p class="text-muted text-center">Landscaper</p>
-					         </div>
+						<div class="sidebar_section" >
+							<div align="center" class="box-body box-profile">
+					            <img class="profile-user-img img-responsive img-circle" src="admin/upload/<?php echo $user['foto_profil'];?>" width="50%" alt=""><br/><br/>
+					            <h3 class="profile-username text-center"><?= $user['nama'] ?></h3>
+					            <p class="text-muted text-center"><?= $user['tanggal_lahir'] ?></p>
+					        </div>
 							<div class="sidebar_categories">
 								<ul>
 									<li><a href="profil.php">Profil</a></li>
