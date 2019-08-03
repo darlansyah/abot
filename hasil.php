@@ -15,10 +15,23 @@ $str_data = "SELECT users.*, lomba_detail.*,tb_nilai.*, AVG(tb_nilai.nilai) AS '
 
 $query = mysqli_query($link,$str_data);
 
-$str_lomba = "SELECT judul FROM lomba WHERE id_lomba = $id_lomba";
+$str_lomba = "SELECT judul,tgl_selesai FROM lomba WHERE id_lomba = $id_lomba";
 $query_lomba = mysqli_query($link,$str_lomba);
 $judul = mysqli_fetch_assoc($query_lomba);
 $judul_lomba = $judul['judul'];
+
+
+$tgl_sekarang = strtotime('2019-08-08'); // asumsi
+$tgl_hasil = strtotime($judul['tgl_selesai']) + 259200;
+
+// if ($tgl_sekarang<$tgl_hasil) {
+// 	echo "Penggumuan hasil lomba paling lambat 3 hari setelah tanggal selesai";
+// }
+// else{
+// 	echo "lihat hasil";
+// }
+//
+// die;
 
 ?>
 
@@ -47,40 +60,54 @@ $judul_lomba = $judul['judul'];
 				<div class="col">
 					<div class="section_title_container text-center">
 						<h2 class="section_title"><?= $judul_lomba ?></h2></br></br>
-						<section class="content container-fluid">
-						       <div class="box">
-						            <!-- /.box-header -->
-						            <div class="box-body">
-						                <table id="example2" class="table table-bordered table-striped">
-						                    <thead>
-						                        <tr>
-													<th>No</th>
-						                            <th>Nama</th>
-						                            <th>Foto</th>
-						                            <th>Nilai</th>
-						                        </tr>
-						                    </thead>
-						                    <tbody>
-											<?php
-											$no = 1;
-											while ($data = mysqli_fetch_assoc($query)) {
-											?>
-
-						                        <tr>
-													<td><?= $no++; ?></td>
-							                         <td><?=$data['nama']; ?></td>
-						                            <td> <img width="80" src="admin/upload/<?=$data['foto_lomba'];?>" alt="img"> </td>
-						                            <td><?=$data['rata-rata']; ?></td>
-						                        </tr>
+						<?php
+						if ($tgl_sekarang<$tgl_hasil) {
+							?>
+							<h3>Penggumuan hasil lomba 3 hari setelah tanggal selesai !</h3>
+							<?php
+						}
+						else{
+							?>
+							<section class="content container-fluid">
+							       <div class="box">
+							            <!-- /.box-header -->
+							            <div class="box-body">
+							                <table id="example2" class="table table-bordered table-striped">
+							                    <thead>
+							                        <tr>
+														<th>No</th>
+							                            <th>Nama</th>
+							                            <th>Foto</th>
+							                            <th>Nilai</th>
+							                        </tr>
+							                    </thead>
+							                    <tbody>
 												<?php
-												}
+												$no = 1;
+												while ($data = mysqli_fetch_assoc($query)) {
 												?>
-						                    </tbody>
-						                </table>
-						            </div>
-						            <!-- /.box-body -->
-						        </div>
-						   </section>
+
+							                        <tr>
+														<td><?= $no++; ?></td>
+								                         <td><?=$data['nama']; ?></td>
+							                            <td> <img width="80" src="admin/upload/<?=$data['foto_lomba'];?>" alt="img"> </td>
+							                            <td><?=$data['rata-rata']; ?></td>
+							                        </tr>
+													<?php
+													}
+													?>
+							                    </tbody>
+							                </table>
+							            </div>
+							            <!-- /.box-body -->
+							        </div>
+							   </section>
+
+							<?php
+						}
+						 ?>
+
+
 					</div>
 				</div>
 			</div>
