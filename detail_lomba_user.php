@@ -9,12 +9,32 @@ $foto_karya = "SELECT * FROM lomba_detail WHERE id_lomba = $id AND id_peserta = 
 $query_karya = mysqli_query($link,$foto_karya);
 $fetch_karya = mysqli_fetch_array($query_karya);
 
-if (!empty($fetch_karya['foto_lomba'] )) {
-$ket_upload = "Berhasil Upload";
+// var_dump($fetch_karya);
+// die;
+
+$id_lomba = $fetch_karya['id_lomba'];
+$lomba = mysqli_query($link,"SELECT * FROM lomba WHERE id_lomba = $id_lomba");
+$datalomba = mysqli_fetch_assoc($lomba);
+
+$tgl_sekarang = strtotime(date('y-m-d'));
+// $tgl_sekarang = strtotime('2019-08-05');
+$tgl_akhir = strtotime($datalomba['tgl_selesai']);
+// echo $tgl_sekarang;
+// echo "<br/>";
+// echo $tgl_akhir;
+if ($tgl_sekarang < $tgl_akhir) {
+  if (!empty($fetch_karya['foto_lomba'] )) {
+  $ket_upload = "Berhasil Upload";
+  }
+  if ($fetch_karya['id_status'] < 3) {
+  $ket_upload = "Pendaftaran Anda Belum Diverifikasi";
+  }
 }
-if ($fetch_karya['id_status'] < 3) {
-$ket_upload = "Pendaftaran Anda Belum Diverifikasi";
+else{
+  $ket_upload = "Tanggal Upload Sudah Berakhir";
 }
+
+
 
 
  ?>
@@ -272,6 +292,9 @@ $ket_upload = "Pendaftaran Anda Belum Diverifikasi";
                                 </div>
 
                                 <?php
+                                if($tgl_sekarang < $tgl_akhir){
+
+
                                 if ($fetch_karya['id_status'] < 3 ) {
 
                                 }else{
@@ -298,6 +321,8 @@ $ket_upload = "Pendaftaran Anda Belum Diverifikasi";
                                 <?php
                                 }
                                 }
+                              }
+
                                 ?>
                             </div>
                         </div>
