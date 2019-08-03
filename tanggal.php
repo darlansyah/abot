@@ -1,24 +1,19 @@
 <?php
 $tanggal = date('y-m-d');
 
+
 $tanggal = strtotime($tanggal);
 $tgl_mulai = strtotime('2019-08-01');
-$tgl_skg = strtotime('2019-08-02');
+
+$tgl_skg = strtotime('2019-08-02');// asumsi
+
 $tgl_akhir = strtotime('2019-08-05');
+$tgl_hasil = strtotime('2019-08-06')
 
-$time = time();
-
-var_dump($tgl_skg);
-echo "<br/>";
-var_dump($tanggal);
-die;
-
-
-if ($tgl_skg < $tgl_akhir) {
-  echo "bisa upload";
-}
-else{
-  echo "tidak bisa upload";
-}
+// $time = time();
+//
+// // if ($tgl_skg < ) {
+// //   // code...
+// // }
 
  ?>

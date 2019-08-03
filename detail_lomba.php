@@ -6,6 +6,27 @@ else{
 		$id_user = $_SESSION['id_user'];
 }
 
+$id = $_GET['id'];
+$sql = "select * from lomba where id_lomba = '$id'";
+$query = mysqli_query($link, $sql);
+$data = mysqli_fetch_array($query);
+
+
+
+$tanggal_sekarang = strtotime('2019-08-04');
+$tanggal_mulai = strtotime($data['tgl_mulai']);
+// var_dump($tanggal_mulai);
+
+
+
+if($tanggal_sekarang < $tanggal_mulai){
+		$pendaftaran = "Pendaftaran";
+}
+else {
+	$pendaftaran = "Maaf Pendaftaran Sudah Tutup";
+}
+// die;
+
  ?>
 
 <!DOCTYPE html>
@@ -185,12 +206,7 @@ else{
 
 				<!-- Course -->
 				<div class="col-lg-8">
-					<?php
-		                $id = $_GET['id'];
-		                $sql = "select * from lomba where id_lomba = '$id'";
-		                $query = mysqli_query($link, $sql);
-		                $data = mysqli_fetch_array($query);
-	                ?>
+
 					<div class="course_container">
 						<div class="course_title"><?php echo $data['judul'];?></div></br>
 
@@ -226,7 +242,7 @@ else{
 
 						<!-- Feature -->
 						<div class="sidebar_section">
-							<div class="sidebar_section_title">Pendaftaran</div>
+							<div class="sidebar_section_title"> <h3> <?= $pendaftaran?> </h3></div>
 							<div class="sidebar_feature">
 								<div class="course_price">Rp. <?php echo $data['biaya_lomba'];?></div>
 
@@ -255,26 +271,28 @@ else{
 										$querydl = mysqli_query($link,"SELECT * FROM lomba_detail WHERE id_lomba =  $id AND id_peserta = $id_user");
 										$cek_user_detail_lomba = mysqli_num_rows($querydl) ;
 
-										
 
-										if ($cek_user_detail_lomba == 1) {
-											?>
-											<div class="box-header">
-											<a href="pendaftaran_status.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Upload Bukti Pembayaran</b></a>
-											</div>
-										<?php
-
-										}
-										else {
-											?>
-											<!-- stat -->
-											<div class="box-header">
-											<a href="pendaftaran.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Daftar</b></a>
-											</div>
-												<!-- end -->
+										if($tanggal_sekarang < $tanggal_mulai){
+											if ($cek_user_detail_lomba == 1) {
+												?>
+												<div class="box-header">
+												<a href="pendaftaran_status.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Upload Bukti Pembayaran</b></a>
+												</div>
 											<?php
 
+											}
+											else {
+												?>
+												<!-- stat -->
+												<div class="box-header">
+												<a href="pendaftaran.php?id=<?php echo $id;?>" class="btn btn-primary btn-block"><b>Daftar</b></a>
+												</div>
+													<!-- end -->
+												<?php
+
+											}
 										}
+
 									 ?>
 
 
