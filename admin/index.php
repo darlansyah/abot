@@ -83,6 +83,9 @@
       <!-- /.row -->
                
            </br></br></br></br>
+
+           
+        <!-- Tabel -->
         <div class="box">
             <div class="box-header">
               <h3 class="box-title">Striped Full Width Table</h3>
