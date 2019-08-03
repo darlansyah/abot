@@ -112,7 +112,6 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <!-- <th>Nama</th> -->
                             <th>Foto</th>
                             <th>Nilai</th>
                             <?php
@@ -134,7 +133,7 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                             <?php if ($data_lomba_detail['id_jurilomba']){ ?>
 
                               <tr>
-                                  <td><!-- <?= $data_lomba_detail//['nama'] ?> --></td>
+
                                   <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
 
                                 <td><?= $data_lomba_detail['nilai'] ?></td>
@@ -155,10 +154,10 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                           else{
                             ?>
                             <tr>
-                                <!-- <td><?php //echo $data_lomba_detail['nama'] ?></td> -->
+                                 
                                 <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
 
-                              <td><!-- kosong --></td>
+                              <td> kosong </td>
                               <?php
                               if ($tgl_sekarang < $tgl_hasil) {
                                ?>
