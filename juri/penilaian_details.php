@@ -3,7 +3,7 @@ include('header.php');
  // include('koneksi.php');
 
 $id = $_GET['id']; // mengambil variable ID Lomba
-// $id_juri = $_SESSION['id_user'];
+$id_juri = $_SESSION['id_user'];
 
 
 $id_jurilomba =  id_jurilomba($id,$id_juri);
@@ -13,6 +13,34 @@ $id_jurilomba =  id_jurilomba($id,$id_juri);
 $query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id'");
 $data_lomba = mysqli_fetch_array($query_lomba);
 
+$tgl_selesai = strtotime( $data_lomba['tgl_selesai']);
+
+
+$tgl_sekarang = strtotime('2019-08-07'); // asumsi
+// $tgl_sekarang = strtotime(date('y-m-d')); // sekarang
+
+$tgl_hasil = $tgl_selesai + 259200;
+
+if ($tgl_sekarang < $tgl_hasil) {
+  echo "tidak bisa beri nilai";
+  $ket_nilai = "Batas Waktu Pemberian Nilai 3 Hari Setelah Tanggal Selesai";
+}
+else{
+  $ket_nilai = "Batas Pemberian Nilai Telah Selesai";
+
+}
+// die;
+
+// if ($tgl_sekarang < $tgl_selesai) {
+//
+//   echo "belum bisa beri nilai"
+// }
+// else{
+//   echo "silakan isi nilai";
+// }
+//
+// // var_dump($tgl_sekarang);
+// die;
 
 
 
@@ -66,6 +94,11 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                         <td>Tanggal Selesai </td>
                         <td><?php echo $data_lomba['tgl_selesai'];?></td>
                     </tr>
+                    <tr>
+                        <td> Keterangan  </td>
+                        <td> <?= $ket_nilai;?> </td>
+                    </tr>
+
 
                 </table>
             </div>
@@ -88,13 +121,28 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
+              <?php
+              if ($tgl_sekarang < $tgl_selesai) {
+                ?>
+                <h1 class="text-center"> Pemberian Nilai Dapat Dilakukan Setelah Tanggal Selesai Lomba </h1>
+                <?php
+              }
+              else{
+                ?>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nama</th>
                             <th>Foto</th>
                             <th>Nilai</th>
+                            <?php
+                            if ($tgl_sekarang < $tgl_hasil) {
+                            ?>
                             <th>Aksi</th>
+                            <?php
+                            }
+                             ?>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -110,11 +158,17 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                                   <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
 
                                 <td><?= $data_lomba_detail['nilai'] ?></td>
+                                <?php
+                                if ($tgl_sekarang < $tgl_hasil) {
+                                 ?>
                                   <td>
                                       <div class="btn-group">
                                           <a href="nilai.php?id=<?= $id ?>&id_peserta=<?=$data_lomba_detail['id_peserta'] ?> " class="btn btn-default btn-sm"  class="link-button">Ubah Nilai</a>
                                       </div>
                                   </td>
+                                  <?php
+                                }
+                                   ?>
                               </tr>
                             <?php
                           }
@@ -125,11 +179,17 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                                 <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
 
                               <td>kosong</td>
+                              <?php
+                              if ($tgl_sekarang < $tgl_hasil) {
+                               ?>
                                 <td>
                                     <div class="btn-group">
                                         <a href="nilai.php?id=<?= $id ?>&id_peserta=<?=$data_lomba_detail['id_peserta'] ?> " class="btn btn-default btn-sm"  class="link-button">Beri Nilai</a>
                                     </div>
                                 </td>
+                                <?php
+                              }
+                                 ?>
                             </tr>
 
                             <?php
@@ -145,6 +205,12 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
 
                     </tbody>
                 </table>
+                <?php
+              }
+               ?>
+
+
+
             </div>
             <!-- /.box-body -->
         </div>

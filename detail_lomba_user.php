@@ -16,8 +16,10 @@ $id_lomba = $fetch_karya['id_lomba'];
 $lomba = mysqli_query($link,"SELECT * FROM lomba WHERE id_lomba = $id_lomba");
 $datalomba = mysqli_fetch_assoc($lomba);
 
-// $tgl_sekarang = strtotime(date('y-m-d'));
-$tgl_sekarang = strtotime('2019-08-06');
+// $tgl_sekarang = strtotime(date('y-m-d')); // sekarang
+$tgl_sekarang = strtotime('2019-08-06'); // asumsi
+
+
 $tgl_akhir = strtotime($datalomba['tgl_selesai']);
 
 if ($tgl_sekarang < $tgl_akhir) {

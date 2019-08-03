@@ -22,6 +22,9 @@ $judul_lomba = $judul['judul'];
 
 
 $tgl_sekarang = strtotime('2019-08-08'); // asumsi
+// $tgl_sekarang = strtotime(date('y-m-d')); // sekarang
+
+
 $tgl_hasil = strtotime($judul['tgl_selesai']) + 259200;
 
 // if ($tgl_sekarang<$tgl_hasil) {

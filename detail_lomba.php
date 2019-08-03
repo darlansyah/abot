@@ -12,8 +12,10 @@ $query = mysqli_query($link, $sql);
 $data = mysqli_fetch_array($query);
 
 
+$tanggal_sekarang = strtotime('2019-08-01'); // asumsi
+// $tanggal_sekarang = strtotime(date('y-m-d')); // sekarang
 
-$tanggal_sekarang = strtotime('2019-08-04');
+
 $tanggal_mulai = strtotime($data['tgl_mulai']);
 // var_dump($tanggal_mulai);
 
