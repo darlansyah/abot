@@ -1,4 +1,41 @@
-<?php include('header.php'); ?>
+<?php
+include('header.php');
+
+// include('koneksi.php');
+
+$user = "SELECT COUNT(kategori) as 'jumlah' FROM `users`
+                WHERE kategori = 'peserta'";
+$query_user = mysqli_query($link,$user);
+$jumlah_user = mysqli_fetch_assoc($query_user);
+
+$juri = "SELECT COUNT(kategori) as 'jumlah' FROM `users`
+                WHERE kategori = 'juri'";
+$query_juri = mysqli_query($link,$juri);
+$jumlah_juri = mysqli_fetch_assoc($query_juri);
+
+$lomba = "SELECT COUNT(id_lomba) as 'jumlah' FROM `lomba`";
+$query_lomba = mysqli_query($link,$lomba);
+$jumlah_lomba = mysqli_fetch_assoc($query_lomba);
+
+$user_d = "SELECT * FROM `users`
+          WHERE kategori = 'peserta'
+          ORDER BY `users`.`id_user`  DESC
+          LIMIT 5";
+$query_user_d = mysqli_query($link,$user_d);
+
+$juri_d = "SELECT * FROM `users`
+          WHERE kategori = 'juri'
+          ORDER BY `users`.`id_user`  DESC
+          LIMIT 5";
+$query_juri_d = mysqli_query($link,$juri_d);
+
+$lomba_d = "SELECT * FROM `lomba`
+            ORDER BY `id_lomba`  DESC
+            LIMIT 5";
+$query_lomba_d = mysqli_query($link,$lomba_d);
+
+?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -23,127 +60,161 @@
                 </div>
             </div>
         </div><br/><br/><br/><br/>
-         
+
         <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="user.php">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
             <div class="info-box-content">
-              <span class="info-box-text">CPU Traffic</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-text">User</span>
+              <span class="info-box-number">  <?= $jumlah_user['jumlah'] ?> </h2></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+      </a>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="user.php">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Juri</span>
+              <span class="info-box-number"><?= $jumlah_juri['jumlah'] ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+      </a>
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="lomba.php">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Sales</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">Lomba</span>
+              <span class="info-box-number"><?= $jumlah_lomba['jumlah'] ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">New Members</span>
-              <span class="info-box-number">2,000</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
+      </a>
       </div>
       <!-- /.row -->
-               
-           </br></br></br></br>
 
-           
+           </br></br>
+
+
         <!-- Tabel -->
-        <div class="box">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Striped Full Width Table</h3>
+              <h3 style="padding:5px;" class="bg-aqua"><b>5 Peserta Terakhir</b></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                  <th>#</th>
+                  <th>Nama</th>
+                  <th>Email</th>
+
+                </tr>
+                <?php
+                $user_no = 1;
+                while ($data_user =  mysqli_fetch_assoc($query_user_d)) {
+                  ?>
+                  <tr>
+                    <td><?= $user_no++ ?></td>
+                    <td><?= $data_user['nama'] ?></td>
+                    <td><?= $data_user['email'] ?></td>
+                  </tr>
+                  <?php
+                }
+                 ?>
+
+
+              </tbody></table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <div class="col-md-4">
+
+            <div class="box">
+            <div class="box-header">
+              <h3 style="padding:5px;" class="bg-red"><b>5 Juri Terakhir</b></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <tbody><tr>
-                  <th style="width: 10px">#</th>
-                  <th>Task</th>
-                  <th>Progress</th>
-                  <th style="width: 40px">Label</th>
+                  <th>#</th>
+                  <th>Nama</th>
+                  <th>Email</th>
+
                 </tr>
-                <tr>
-                  <td>1.</td>
-                  <td>Update software</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">55%</span></td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>Clean database</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-yellow">70%</span></td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>Cron job running</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">30%</span></td>
-                </tr>
-                <tr>
-                  <td>4.</td>
-                  <td>Fix and squish bugs</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">90%</span></td>
-                </tr>
+                <?php
+                $juri_no = 1;
+
+                while ($data_juri =  mysqli_fetch_assoc($query_juri_d)) {
+                  ?>
+                  <tr>
+                    <td><?=$juri_no++ ?></td>
+                    <td> <?=$data_juri['nama'] ?> </td>
+                    <td><?=$data_juri['email'] ?> </td>
+                  </tr>
+                  <?php
+                }
+                 ?>
+
+
               </tbody></table>
             </div>
             <!-- /.box-body -->
           </div>
+          </div>
+          <div class="col-md-4">
 
+            <div class="box">
+            <div class="box-header">
+              <h3 style="padding:5px;" class="bg-green"><b>5 Lomba Terakhir</b></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <tbody><tr>
+                  <th>#</th>
+                  <th>Lomba</th>
+                  <th>Tgl_Selesai</th>
+                </tr>
+                <?php
+                $lomba_no = 1;
+                while ($data_lomba = mysqli_fetch_assoc($query_lomba_d)) {
+                 ?>
+                <tr>
+                  <td><?= $lomba_no++?></td>
+                  <td><?= $data_lomba['judul'] ?></td>
+                  <td><?= $data_lomba['tgl_selesai'] ?> </td>
+              </tr>
+              <?php
+              }
+               ?>
+              </tbody></table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>
