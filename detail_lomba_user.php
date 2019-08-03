@@ -130,6 +130,7 @@ else{
                         <div class="header_content d-flex flex-row align-items-center justify-content-start">
                             <div class="logo_container">
                                 <a href="#">
+                                    <img width="30%" src="images/kfi_jogja.png" alt="">
                                     <div class="logo_text">KFI<span>REG DIY</span></div>
                                 </a>
                             </div>
@@ -147,7 +148,6 @@ else{
                                     <li><a href="about.php">About</a></li>
                                 </ul>
                                 </ul>
-                                <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
                             </nav>
 
                         </div>

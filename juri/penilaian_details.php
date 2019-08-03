@@ -16,7 +16,7 @@ $data_lomba = mysqli_fetch_array($query_lomba);
 $tgl_selesai = strtotime( $data_lomba['tgl_selesai']);
 
 
-$tgl_sekarang = strtotime('2019-08-07'); // asumsi
+$tgl_sekarang = strtotime('2019-08-09'); // asumsi
 // $tgl_sekarang = strtotime(date('y-m-d')); // sekarang
 
 $tgl_hasil = $tgl_selesai + 259200;
@@ -29,26 +29,6 @@ else{
   $ket_nilai = "Batas Pemberian Nilai Telah Selesai";
 
 }
-// die;
-
-// if ($tgl_sekarang < $tgl_selesai) {
-//
-//   echo "belum bisa beri nilai"
-// }
-// else{
-//   echo "silakan isi nilai";
-// }
-//
-// // var_dump($tgl_sekarang);
-// die;
-
-
-
-// lomba dettail 01
-// $lomba_detail = "SELECT tb_nilai.*, lomba_detail.*, users.nama FROM lomba_detail
-//                 LEFT JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai
-//                 INNER JOIN users ON lomba_detail.id_peserta = users.id_user
-//                 WHERE lomba_detail.id_lomba = $id ";
 
 $lomba_detail = "SELECT tb_nilai.*, lomba_detail.*, users.nama FROM lomba_detail
                 LEFT JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai AND tb_nilai.id_jurilomba = $id_jurilomba
@@ -132,7 +112,7 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Nama</th>
+                            <!-- <th>Nama</th> -->
                             <th>Foto</th>
                             <th>Nilai</th>
                             <?php
@@ -154,7 +134,7 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                             <?php if ($data_lomba_detail['id_jurilomba']){ ?>
 
                               <tr>
-                                  <td><?= $data_lomba_detail['nama'] ?></td>
+                                  <td><!-- <?= $data_lomba_detail//['nama'] ?> --></td>
                                   <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
 
                                 <td><?= $data_lomba_detail['nilai'] ?></td>
@@ -175,10 +155,10 @@ $query_lomba_detail = mysqli_query($link,$lomba_detail);
                           else{
                             ?>
                             <tr>
-                                <td><?= $data_lomba_detail['nama'] ?></td>
+                                <!-- <td><?php //echo $data_lomba_detail['nama'] ?></td> -->
                                 <td><img width="80" height="80"src="../admin/upload/<?php echo $data_lomba_detail['foto_lomba']; ?>" alt=""></td>
 
-                              <td>kosong</td>
+                              <td><!-- kosong --></td>
                               <?php
                               if ($tgl_sekarang < $tgl_hasil) {
                                ?>
