@@ -19,6 +19,7 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 					<div class="col">
 						<div class="breadcrumbs">
 							<ul>
+								<li><a href="index.php">Home</a></li>
 								<li>Lomba</li>
 							</ul>
 						</div>

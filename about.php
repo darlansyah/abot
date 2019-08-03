@@ -99,6 +99,7 @@ else{
                                 <div class="header_content d-flex flex-row align-items-center justify-content-start">
                                     <div class="logo_container">
                                         <a href="#">
+                                            <img width="30%" src="images/kfi_jogja.png" alt="">
                                             <div class="logo_text">KFI<span>REG DIY</span></div>
                                         </a>
                                     </div>
@@ -117,7 +118,6 @@ else{
 
                                             <li><a href="about.php">About</a></li>
                                         </ul>
-                                        <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
                                     </nav>
 
                                 </div>
@@ -125,24 +125,6 @@ else{
                         </div>
                     </div>
                 </div>
-
-                <!-- Header Search Panel -->
-                <!-- <div class="header_search_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-                                    <form action="#" class="header_search_form">
-                                        <input type="search" class="search_input" placeholder="Search" required="required">
-                                        <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </header>
 
 	<!-- Menu -->
