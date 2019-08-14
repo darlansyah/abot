@@ -6,14 +6,12 @@ include('header.php');
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Hello : <?= $_SESSION['id_user']; ?>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-        </ol>
+    <section align="center" class="content-header">
+            <!-- Hello : <?= $_SESSION//['id_user']; ?> -->
+            <li>
+                <h1><b>Komunitas Fotografi Indonesia</b></h1>
+                <h2>Regional D.I.Yogyakarta</h2>
+            </li>
     </section>
 
     <!-- Main content -->

@@ -103,24 +103,11 @@ desired effect
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
-
-      <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="index.php"><i class="fa fa-home"></i> <span>Home</span></a></li>
+        <li><a href="index.php"><i class="fa fa-home"></i> <span>Home</span></a></li>
         <li><a href="penilaian.php"><i class="fa fa-image"></i> <span>Penilaian</span></a></li>
         <li><a href="../login/logout.php"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
 

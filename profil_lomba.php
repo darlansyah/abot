@@ -113,6 +113,7 @@ else{
 									<li><a href="profil.php">Profil</a></li>
 									<li><a href="my_lomba.php">Lomba</a></li>
 									<li><a href="pengaturan_profil.php">Pengaturan</a></li>
+									<li><a href="pengaturan_password.php">Ubah Password</a></li>
 									<li><a href="logout.php">Logout</a></li>
 								</ul>
 							</div>

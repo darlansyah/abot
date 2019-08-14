@@ -15,7 +15,6 @@ $str_data = "SELECT users.*, lomba_detail.*,tb_nilai.*, AVG(tb_nilai.nilai) AS '
             WHERE users.kategori = 'peserta' AND lomba_detail.id_lomba = $id
             GROUP BY tb_nilai.id_lombadetail_nilai
             ORDER BY AVG(tb_nilai.nilai) DESC";
-// echo $str_data;
 
 $query = mysqli_query($link,$str_data);
 
@@ -28,7 +27,7 @@ $query = mysqli_query($link,$str_data);
             Detail Lomba
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li><a href="hasil_lomba.php"><i class="fa fa-dashboard"></i>Hasil lomba</a></li>
             <li class="active">Here</li>
         </ol>
     </section>

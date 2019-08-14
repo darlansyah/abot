@@ -1,4 +1,9 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+
+$id_lomba = $_GET['id'];
+$query_lomba = mysqli_query($link, "select * from lomba where id_lomba = '$id_lomba'");
+$data_lomba = mysqli_fetch_array($query_lomba);
+?>
 
 <!--home-->
 <div class="home">
@@ -24,7 +29,7 @@
         <div class="row">
             <div class="col">
                 <div class="section_title_container text-center">
-                    <h3 class="section_title">KFI REG D.I.Yogyakarta</h3>
+                    <h1 class="section_title"><?php echo $data_lomba['judul'] ?></h1>
                     <div class="section_subtitle"><p>Terimakasih telah melakukan pendaftaran</p>
                         <p>silahkan melakukan pembayaran</p></div></br></br>
                     <section class="content container-fluid">
@@ -45,8 +50,8 @@
                                         <td>BNI</td>
                                     </tr>
                                     <tr>
-                                        <td>HTM </td>
-                                        <td>Rp. 49.085</td>
+                                        <td>Biaya Pendaftaran </td>
+                                        <td>Rp. <?php echo $data_lomba['biaya_lomba'];?></td>
                                     </tr>            
                                 </table></br>
                                 <h3><p>Setelah Melakukan Pembayaran sesuai nominal pada HTM</p></h3>

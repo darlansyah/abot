@@ -1,10 +1,6 @@
 <?php
 // include('header.php');
 include('admin/koneksi.php');
-// print_r($_POST);
-// die;
-
-// Array ( [foto] => gambar kerya [id] => 2 )
 
 $id = $_POST['id'];
 $id_user = $_SESSION['id_user'];

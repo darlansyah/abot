@@ -16,7 +16,7 @@ $data_lomba = mysqli_fetch_array($query_lomba);
 $tgl_selesai = strtotime( $data_lomba['tgl_selesai']);
 
 
-$tgl_sekarang = strtotime('2019-08-09'); // asumsi
+$tgl_sekarang = strtotime('2019-08-17'); // asumsi
 // $tgl_sekarang = strtotime(date('y-m-d')); // sekarang
 
 $tgl_hasil = $tgl_selesai + 259200;
@@ -37,11 +37,8 @@ $lomba_detail = "SELECT tb_nilai.*, lomba_detail.*, users.nama FROM lomba_detail
 
 $query_lomba_detail = mysqli_query($link,$lomba_detail);
 
-// $fetch = mysqli_fetch_array($query_lomba_detail);
-// var_dump(count($fetch['id_lombadetail'] == 13));
-// die;
-// AND count($data_lomba_detail['id_lombadateil_nilai']) = 1
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

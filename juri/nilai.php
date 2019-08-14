@@ -6,9 +6,6 @@ $id_peserta = $_GET['id_peserta']; // id peserta
 
 $id_jurilomba =  id_jurilomba($id,$id_juri);
 
-
-// $id_jurilomba = 11; // asumsi
-// $lomba_detail = "SELECT users.nama, lomba_detail.* FROM `lomba_detail` INNER JOIN users ON lomba_detail.id_peserta = users.id_user WHERE lomba_detail.id_lomba = $id AND lomba_detail.id_peserta = $id_peserta  ";
  $lomba_detail = "SELECT tb_nilai.*, lomba_detail.*, users.nama FROM lomba_detail
                  LEFT JOIN tb_nilai ON lomba_detail.id_lombadetail = tb_nilai.id_lombadetail_nilai AND tb_nilai.id_jurilomba = $id_jurilomba
                  INNER JOIN users ON lomba_detail.id_peserta = users.id_user
@@ -33,7 +30,7 @@ else{
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Penilaian
+            Input Nilai
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>

@@ -12,13 +12,11 @@ $query = mysqli_query($link, $sql);
 $data = mysqli_fetch_array($query);
 
 
-$tanggal_sekarang = strtotime('2019-08-01'); // asumsi
-// $tanggal_sekarang = strtotime(date('y-m-d')); // sekarang
+// $tanggal_sekarang = strtotime('2019-08-01'); // asumsi
+$tanggal_sekarang = strtotime(date('y-m-d')); // sekarang
 
 
 $tanggal_mulai = strtotime($data['tgl_mulai']);
-// var_dump($tanggal_mulai);
-
 
 
 if($tanggal_sekarang < $tanggal_mulai){
@@ -27,7 +25,7 @@ if($tanggal_sekarang < $tanggal_mulai){
 else {
 	$pendaftaran = "Maaf Pendaftaran Sudah Tutup";
 }
-// die;
+
 
  ?>
 
@@ -253,7 +251,7 @@ else {
 
 									<!-- Feature -->
 	                                <div class="feature d-flex flex-row align-items-center justify-content-start">
-	                                    <div class="feature_title"><i class="fa fa-calender" aria-hidden="true"></i><span>Tanggal Pendaftaran:</span></div>
+	                                    <div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Tanggal Pendaftaran:</span></div>
 	                                    <div class="feature_text ml-auto"><?php echo $data['tgl_daftar']; ?></div>
 	                                </div>
 

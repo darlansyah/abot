@@ -25,7 +25,7 @@ if($data['status_lomba'] == 'Posting') {
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Lomba</a></li>
-            <li class="active">Tambah</li>
+            <li class="active">Update Lomba</li>
         </ol>
     </section>
 
@@ -42,7 +42,7 @@ if($data['status_lomba'] == 'Posting') {
                       <input type="hidden" name="id" value="<?= $data['id_lomba'] ?>">
                       <input type="hidden" name="foto_lama" value="<?= $data['foto'] ?>">
                         <div class="box-body">
-                          <div class="form-group col-md-12">
+                          <div align="center"  class="form-group col-md-12">
 
                               <img width="100%"  src="upload/<?= $data['foto'] ?>" alt="foto"> <br/> <br/>
 
@@ -59,16 +59,16 @@ if($data['status_lomba'] == 'Posting') {
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_daftar" value="<?php echo date('Y-m-d', strtotime($data['tgl_daftar']));?>">
+                                    <input type="text" class="form-control" id="tgl_daftar" name="tanggal_daftar" value="<?php echo date('Y-m-d', strtotime($data['tgl_daftar']));?>">
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                           <div class="form-group col-md-4">
                                 <label>Tanggal Mulai</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_mulai" value="<?php echo date('Y-m-d', strtotime($data['tgl_mulai']));?>">
+                                    <input type="text" class="form-control" id="tgl_mulai" name="tanggal_mulai" value="<?php echo date('Y-m-d', strtotime($data['tgl_mulai']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -77,7 +77,7 @@ if($data['status_lomba'] == 'Posting') {
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="tanggal_selesai" value="<?php echo date('Y-m-d', strtotime($data['tgl_selesai']));?>">
+                                    <input type="text" class="form-control" id="tgl_selesai" name="tanggal_selesai" value="<?php echo date('Y-m-d', strtotime($data['tgl_selesai']));?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">

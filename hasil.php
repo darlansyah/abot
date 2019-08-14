@@ -21,20 +21,11 @@ $judul = mysqli_fetch_assoc($query_lomba);
 $judul_lomba = $judul['judul'];
 
 
-$tgl_sekarang = strtotime('2019-08-08'); // asumsi
+$tgl_sekarang = strtotime('2019-08-21'); // asumsi
 // $tgl_sekarang = strtotime(date('y-m-d')); // sekarang
 
 
 $tgl_hasil = strtotime($judul['tgl_selesai']) + 259200;
-
-// if ($tgl_sekarang<$tgl_hasil) {
-// 	echo "Penggumuan hasil lomba paling lambat 3 hari setelah tanggal selesai";
-// }
-// else{
-// 	echo "lihat hasil";
-// }
-//
-// die;
 
 ?>
 
@@ -75,10 +66,10 @@ $tgl_hasil = strtotime($judul['tgl_selesai']) + 259200;
 							       <div class="box">
 							            <!-- /.box-header -->
 							            <div class="box-body">
-							                <table id="example2" class="table table-bordered table-striped">
+							                <table id="example1" class="table table-bordered table-striped">
 							                    <thead>
 							                        <tr>
-														<th>No</th>
+														<th>Peringkat</th>
 							                            <th>Nama</th>
 							                            <th>Foto</th>
 							                            <th>Nilai</th>

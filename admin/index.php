@@ -65,10 +65,9 @@ $query_lomba_d = mysqli_query($link,$lomba_d);
         <a href="user.php">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon bg-aqua"><i><?= $jumlah_user['jumlah'] ?></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">User</span>
-              <span class="info-box-number">  <?= $jumlah_user['jumlah'] ?> </h2></span>
+              <h2 style="text-align: center;">MEMBER</h2>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -79,11 +78,10 @@ $query_lomba_d = mysqli_query($link,$lomba_d);
         <a href="user.php">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i><?= $jumlah_juri['jumlah'] ?></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Juri</span>
-              <span class="info-box-number"><?= $jumlah_juri['jumlah'] ?></span>
+              <h2 style="text-align: center;">JURI</h2>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -95,11 +93,10 @@ $query_lomba_d = mysqli_query($link,$lomba_d);
         <a href="lomba.php">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-image-outline"></i></span>
+            <span class="info-box-icon bg-green"><i><?= $jumlah_lomba['jumlah'] ?></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Lomba</span>
-              <span class="info-box-number"><?= $jumlah_lomba['jumlah'] ?></span>
+              <h2 style="text-align: center;">LOMBA</h2>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -117,14 +114,14 @@ $query_lomba_d = mysqli_query($link,$lomba_d);
           <div class="col-md-4">
             <div class="box">
             <div class="box-header">
-              <h3 style="padding:5px;" class="bg-aqua"><b>5 Peserta Terakhir</b></h3>
+              <h3 style="padding:5px;" class="bg-aqua"><b>5 Member Terakhir</b></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <tbody>
                   <tr>
-                  <th>#</th>
+                  <th>No</th>
                   <th>Nama</th>
                   <th>Email</th>
 
@@ -158,7 +155,7 @@ $query_lomba_d = mysqli_query($link,$lomba_d);
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <tbody><tr>
-                  <th>#</th>
+                  <th>No</th>
                   <th>Nama</th>
                   <th>Email</th>
 
@@ -193,7 +190,7 @@ $query_lomba_d = mysqli_query($link,$lomba_d);
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <tbody><tr>
-                  <th>#</th>
+                  <th>No</th>
                   <th>Lomba</th>
                   <th>Tgl_Selesai</th>
                 </tr>

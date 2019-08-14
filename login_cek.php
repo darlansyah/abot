@@ -17,7 +17,7 @@ if ($num > 0) {
     $_SESSION['id_user'] = $data['id_user'];
     $_SESSION['nama'] = $data['nama'];
 
-    header("location:profil.php");
+    header("location:index.php");
 } else {
     header("location:login.php?pesan=Username atau password salah!");
 }

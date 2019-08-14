@@ -55,12 +55,12 @@ $fetch_lomba = mysqli_fetch_array($data_lomba);
 							while($data = mysqli_fetch_array($query)){
 							?>
 							<!-- Course -->
-							<div class="col-lg-3 course_col">
+							<div class="col-lg-4 course_col">
 								<div class="course">
 									<div class="course_image"><img width="350" height="150" src="admin/upload/<?php echo $data['foto'];?>" alt="">
 									</div>
 									<div class="course_body">
-									<h5 class="course_title"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h5>
+									<h5 class="course_title" style="font-size: 25px"><a href="status_peserta.php?id=<?php echo $data['id_lomba'];?>"><?php echo $data['judul'];?></a></h5>
 									</div>
 										<div class="course_footer">
 											<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
